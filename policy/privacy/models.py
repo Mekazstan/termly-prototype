@@ -4,6 +4,7 @@ from django.db import models
 
 class priv_use(models.Model):
     selected = models.ManyToManyField(related_name="selected_answers", blank=True)
+    
 class Apptype(models.Model):
     selected_types = models.ManyToManyField(related_name="selected_answers", blank=True)
 class lang_pref(models.Model):
