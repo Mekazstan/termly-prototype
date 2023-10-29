@@ -255,7 +255,7 @@
         article {
             display: block;
             width: 80%;
-            padding: 20px;
+            padding: 2px;
         }
 
         h2 {
@@ -338,17 +338,35 @@
             font-weight: 500;
             text-transform: uppercase;
         }
+        .back-btn {
+            cursor: pointer;
+            border: none;
+            background: rgba(0,0,0,0);
+            padding: 0;
+            font-size: .875em;
+            font-family: Roboto,"Open Sans",Helvetica,Arial;
+            color: #4672ff;
+            font-weight: 500;
+            text-transform: uppercase;
+            -webkit-appearance: button;
+            overflow: visible;
+            line-height: 1.15;
+            margin: 0;
+        }
         .main-sec {
             margin-bottom: 1.5rem;
             display: block;
         }
-        .radio-group {
-            display: flex;
-            flex-direction: column;
+        .checkbox-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: .875rem;
+            font-weight: 400;
+            color: #545454;"
         }
 
-        .radio-option {
-            margin-bottom: 10px;
+        .checkbox-option {
+            margin-right: 5px; /* Add spacing between the checkbox and label */
         }
 
         /* Tips Section */
@@ -484,7 +502,7 @@
     <!-- Navbar -->
     <div class="navbar">
         <div class="logo">
-            <img src="logo.svg" alt="Logo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE0IiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMTE0IDMwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTM4IDguODQzOTNWNi43OTYwMkg0Ny45MDEyVjguODQzOTNINDQuMjgxNlYyMC4wMzE2SDQxLjYwMDRWOC44NDM5M0gzOFpNNTQuNDUwOCAyMC4xODM0QzUyLjkwNTkgMjAuMTgzNCA1MS42NDgzIDE5LjY4NzIgNTAuNjc4IDE4LjY5NDhDNDkuNzA3NyAxNy43MDI1IDQ5LjIyMjUgMTYuMzkxIDQ5LjIyMjUgMTQuNzYwMkM0OS4yMjI1IDEzLjEyOTUgNDkuNzEwOSAxMS44MjQzIDUwLjY4NzYgMTAuODQ0NUM1MS42NjQzIDkuODY0ODMgNTIuOTI4MiA5LjM3NDk5IDU0LjQ3OTUgOS4zNzQ5OUM1Ni4wMzA3IDkuMzc0OTkgNTcuMzA0MyA5Ljg1MjE5IDU4LjMwMDIgMTAuODA2NkM1OS4yOTYgMTEuNzYxMSA1OS43OTM5IDEzLjAzNDcgNTkuNzkzOSAxNC42Mjc1QzU5Ljc5MzkgMTQuOTk0MSA1OS43Njg0IDE1LjMzNTQgNTkuNzE3MyAxNS42NTE0SDUxLjk4MDNDNTIuMDQ0MSAxNi4zMzQxIDUyLjI5OTUgMTYuODg0IDUyLjc0NjMgMTcuMzAxMUM1My4xOTMyIDE3LjcxODMgNTMuNzYxMyAxNy45MjY5IDU0LjQ1MDggMTcuOTI2OUM1NS4zODI4IDE3LjkyNjkgNTYuMDcyMiAxNy41NDc2IDU2LjUxOTEgMTYuNzg5Mkg1OS40MzAxQzU5LjEyMzcgMTcuNzg3OCA1OC41MyAxOC42MDMyIDU3LjY0OSAxOS4yMzUzQzU2Ljc2ODEgMTkuODY3MyA1NS43MDIgMjAuMTgzNCA1NC40NTA4IDIwLjE4MzRaTTU2LjIyMjMgMTIuMjU3OUM1NS43NDM1IDExLjg0MDggNTUuMTY1OCAxMS42MzIyIDU0LjQ4OTEgMTEuNjMyMkM1My44MTI0IDExLjYzMjIgNTMuMjQ3NSAxMS44NDA4IDUyLjc5NDIgMTIuMjU3OUM1Mi4zNDEgMTIuNjc1MSA1Mi4wNjk3IDEzLjIzMTMgNTEuOTgwMyAxMy45MjY2SDU2Ljk5NzlDNTYuOTU5NiAxMy4yMzEzIDU2LjcwMTEgMTIuNjc1MSA1Ni4yMjIzIDEyLjI1NzlaTTY0LjYyIDkuNTI2NjhWMTEuMzg1QzY1LjMzNSAxMC4wNDUgNjYuMzY5MiA5LjM3NDk5IDY3LjcyMjUgOS4zNzQ5OVYxMi4xMDU1SDY3LjA1MjJDNjYuMjQ3OSAxMi4xMDU1IDY1LjY0MTQgMTIuMzA0NiA2NS4yMzI5IDEyLjcwMjhDNjQuODI0MyAxMy4xMDEgNjQuNjIgMTMuNzg2OCA2NC42MiAxNC43NjAyVjIwLjAzMTdINjEuOTE5N1Y5LjUyNjY4SDY0LjYyWk03Mi4zMzgxIDkuNTI2NjhWMTEuMTAwNUM3My4wMTQ4IDkuOTUwMTYgNzQuMTEyOCA5LjM3NDk5IDc1LjYzMjEgOS4zNzQ5OUM3Ni40MzY0IDkuMzc0OTkgNzcuMTU0NiA5LjU1ODI4IDc3Ljc4NjYgOS45MjQ4OUM3OC40MTg2IDEwLjI5MTUgNzguOTA2OSAxMC44MTYxIDc5LjI1MTcgMTEuNDk4N0M3OS42MjE5IDEwLjg0MTQgODAuMTI5NCAxMC4zMjMxIDgwLjc3NDIgOS45NDM4NUM4MS40MTg5IDkuNTY0NiA4Mi4xNDM1IDkuMzc0OTkgODIuOTQ3OCA5LjM3NDk5Qzg0LjIxMTggOS4zNzQ5OSA4NS4yMyA5Ljc2Njg2IDg2LjAwMjQgMTAuNTUwNkM4Ni43NzQ5IDExLjMzNDQgODcuMTYxMSAxMi40MzQyIDg3LjE2MTEgMTMuODVWMjAuMDMxN0g4NC40Nzk5VjE0LjIyOTNDODQuNDc5OSAxMy40MDc2IDg0LjI2OTMgMTIuNzc4NyA4My44NDc5IDEyLjM0MjZDODMuNDI2NiAxMS45MDY0IDgyLjg1MjEgMTEuNjg4NCA4Mi4xMjQzIDExLjY4ODRDODEuMzk2NiAxMS42ODg0IDgwLjgxODkgMTEuOTA2NCA4MC4zOTExIDEyLjM0MjZDNzkuOTYzNCAxMi43Nzg3IDc5Ljc0OTYgMTMuNDA3NiA3OS43NDk2IDE0LjIyOTNWMjAuMDMxN0g3Ny4wNjg0VjE0LjIyOTNDNzcuMDY4NCAxMy40MDc2IDc2Ljg1NzggMTIuNzc4NyA3Ni40MzY0IDEyLjM0MjZDNzYuMDE1MSAxMS45MDY0IDc1LjQ0MDYgMTEuNjg4NCA3NC43MTI4IDExLjY4ODRDNzMuOTg1MSAxMS42ODg0IDczLjQwNzQgMTEuOTA2NCA3Mi45Nzk3IDEyLjM0MjZDNzIuNTUxOSAxMi43Nzg3IDcyLjMzODEgMTMuNDA3NiA3Mi4zMzgxIDE0LjIyOTNWMjAuMDMxN0g2OS42Mzc4VjkuNTI2NjhINzIuMzM4MVpNODkuOTM4IDIwLjAzMTlWNkg5Mi42MzgzVjIwLjAzMTlIODkuOTM4Wk05OC4zNjQ0IDE5Ljg0MTlMOTQuMjA4NiA5LjUyNjUySDk3LjIzNDVMOTkuOTM0OCAxNi45OTc2TDEwMi43ODggOS41MjY1MkgxMDUuNjA0TDk4Ljk3NzMgMjQuOTk5Nkg5Ni4xNjJMOTguMzY0NCAxOS44NDE5WiIgZmlsbD0iIzM2Mzg0MCIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE1IDMwQzIzLjI4NDMgMzAgMzAgMjMuMjg0MyAzMCAxNUMzMCA2LjcxNTczIDIzLjI4NDMgMCAxNSAwQzYuNzE1NzMgMCAwIDYuNzE1NzMgMCAxNUMwIDIzLjI4NDMgNi43MTU3MyAzMCAxNSAzMFpNMTIuNjMxNiA4LjEwODRIMjEuNjExOUwxOC43MTcxIDEyLjE2MjRIMjEuMzE1OEwxMi42MzE2IDI0LjMyNDZWMjAuNjg1MlYxMi4xNjI0VjguMTA4NFoiIGZpbGw9IiM0NjcyRkYiLz4KPC9zdmc+Cg==" alt="Logo">
         </div>
     </div>
 
@@ -549,7 +567,7 @@
         <div class="right-div">
             <!-- Top Div -->
             <div class="top-div">
-                <h1>Privacy Policy</h1>
+                <h1><strong>Privacy Policy</strong></h1>
                 <div class="publish-button-div">
                     <button class="publish-button">PUBLISH</button>
                 </div>
@@ -581,12 +599,12 @@
                         </div>
                     </div>
                     <button class="preview-button">
-                        <img class="img-btn" src="eye.svg"> Preview</button>
+                        <img class="img-btn" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuODQzNDMgMTAuNDM1OUMxLjY5NTk2IDEwLjI3MiAxLjU2ODc5IDEwLjEyNSAxLjQ2MzQgMTBDMS41Njg3OSA5Ljg3NTA0IDEuNjk1OTYgOS43MjgwMyAxLjg0MzQzIDkuNTY0MUMyLjMzMTU4IDkuMDIxNDggMy4wMzc1MiA4LjI5ODU5IDMuOTA3NTYgNy41Nzc0M0M1LjY2ODkgNi4xMTc0NiA3Ljk5OTY4IDQuNzUgMTAuNSA0Ljc1QzEzLjAwMDMgNC43NSAxNS4zMzExIDYuMTE3NDYgMTcuMDkyNCA3LjU3NzQzQzE3Ljk2MjUgOC4yOTg1OSAxOC42Njg0IDkuMDIxNDggMTkuMTU2NiA5LjU2NDFDMTkuMzA0IDkuNzI4MDMgMTkuNDMxMiA5Ljg3NTA0IDE5LjUzNjYgMTBDMTkuNDMxMiAxMC4xMjUgMTkuMzA0IDEwLjI3MiAxOS4xNTY2IDEwLjQzNTlDMTguNjY4NCAxMC45Nzg1IDE3Ljk2MjUgMTEuNzAxNCAxNy4wOTI0IDEyLjQyMjZDMTUuMzMxMSAxMy44ODI1IDEzLjAwMDMgMTUuMjUgMTAuNSAxNS4yNUM3Ljk5OTY4IDE1LjI1IDUuNjY4OSAxMy44ODI1IDMuOTA3NTYgMTIuNDIyNkMzLjAzNzUyIDExLjcwMTQgMi4zMzE1OCAxMC45Nzg1IDEuODQzNDMgMTAuNDM1OVoiIHN0cm9rZT0iIzQ2NzJGRiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPGNpcmNsZSBjeD0iMTAuNSIgY3k9IjEwIiByPSIyLjI1IiBzdHJva2U9IiM0NjcyRkYiIHN0cm9rZS13aWR0aD0iMS41Ii8+Cjwvc3ZnPgo="> Preview</button>
                     
                     <!-- Tips Section -->
                     <section class="tips-section">
                         <div class="tips-title">
-                            <img class="tips-img" src="bulb.svg"> Tips:
+                            <img class="tips-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAxOSAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjIwMjIgMTQuMzQxTDExLjkyMjggMTQuNTE3NkwxMS45MjI3IDE0Ljg0ODFMMTEuOTIyMyAxNi41MTk5SDcuMzYyMjNMNy4zNjIzNSAxNC44NDg3TDcuMzYyMzggMTQuNTE4TDcuMDgyNzcgMTQuMzQxNEM1LjczNTExIDEzLjQ5MDIgNC44NDIxOSAxMS45ODkxIDQuODQyMTkgMTAuMjc5OUM0Ljg0MjE5IDcuNjI4OTIgNi45OTEyMiA1LjQ3OTg4IDkuNjQyMTkgNS40Nzk4OEMxMi4yOTMyIDUuNDc5ODggMTQuNDQyMiA3LjYyODkyIDE0LjQ0MjIgMTAuMjc5OUMxNC40NDIyIDExLjk4ODggMTMuNTQ5NSAxMy40ODk3IDEyLjIwMjIgMTQuMzQxWiIgc3Ryb2tlPSIjMzYzODQwIiBzdHJva2Utd2lkdGg9IjEuMiIvPgo8cGF0aCBkPSJNMy44ODQxOSA0Ljg3OTk2TDMuNDIxNDcgNC41MzY5NCIgc3Ryb2tlPSIjMzYzODQwIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0xNS4wNjkxIDQuOTA0MTdMMTUuNDgzNSA0LjUwNDA1IiBzdHJva2U9IiMzNjM4NDAiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGNpcmNsZSBjeD0iOS42MDIzNCIgY3k9IjExIiByPSIxLjIiIGZpbGw9IiMzNjM4NDAiLz4KPHBhdGggZD0iTTEyLjAwMzkgMTcuOTk5OVYxOC45OTk5SDcuMDAzOTFWMTcuOTk5OUgxMi4wMDM5WiIgZmlsbD0iIzM2Mzg0MCIvPgo8cGF0aCBkPSJNOS42NDM0NyAyLjU3NlYyIiBzdHJva2U9IiMzNjM4NDAiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTEuNTc5OTEgOS40ODgwMUgxLjAwMzkxIiBzdHJva2U9IiMzNjM4NDAiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTE3LjcwNyA5LjQ4ODAxSDE4LjI4MyIgc3Ryb2tlPSIjMzYzODQwIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik05LjY0NTE2IDExLjM2VjE2LjkyMzQiIHN0cm9rZT0iIzM2Mzg0MCIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPC9zdmc+Cg=="> Tips:
                         </div>
                         <h3>What is a privacy policy?</h3>
                         <p>
