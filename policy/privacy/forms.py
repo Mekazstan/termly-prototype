@@ -9,7 +9,7 @@ class priv_use_form(forms.ModelForm):
 class Apptype_form(forms.ModelForm):
     class Meta:
         model = Apptype
-        fields = ['selected_options']
+        fields = ['websitename','appname', 'faceappname']
         
 class lang_pref_form(forms.ModelForm):
     class Meta:

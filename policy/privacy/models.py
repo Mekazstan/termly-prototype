@@ -6,7 +6,9 @@ class priv_use(models.Model):
     selected = models.ManyToManyField(related_name="selected_answers", blank=True)
     
 class Apptype(models.Model):
-    selected_types = models.ManyToManyField(related_name="selected_answers", blank=True)
+    websitename = models.CharField( max_length=100,blank=True)
+    appname = models.CharField( max_length=100, blank=True)
+    faceappname = models.CharField(max_length=100, blank=True)
 class lang_pref(models.Model):
     lang = models.ForeignKey(related_name="selected_answer", blank=True)
 
