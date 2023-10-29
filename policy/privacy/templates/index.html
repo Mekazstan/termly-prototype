@@ -560,34 +560,8 @@
 
             <!-- Side by Side Divs -->
             <div class="side-by-side">
-                <article>
-                    <!-- Questions -->
-                    <h2>Privacy Policy Uses</h2>
-                    <div class="question-section">
-                        <section class="main-sec">
-                            <h3>What will this Privacy Policy be used for?</h3>
-                             <div class="radio-group">
-                                <label class="radio-option">
-                                    <input type="radio" name="application" value="Website"> Website
-                                </label>
-
-                                <label class="radio-option">
-                                    <input type="radio" name="application" value="Mobile application"> Mobile application
-                                </label>
-
-                                <label class="radio-option">
-                                    <input type="radio" name="application" value="Facebook application"> Facebook application
-                                </label>
-                            </div>
-                        </section>
-                        <footer>
-                            <div></div>
-                            <div class="save-btn-div">
-                                <button class="save-btn">Save & Next</button>
-                            </div>
-                        </footer>
-                    </div>
-                </article>
+                <!-- Include the dynamic content from the "article.html" template -->
+                {% include 'article.html' %}
                 <div class="side-right">
                     <div class="main-img">
                         <div class="main-img-div">
