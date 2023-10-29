@@ -4,11 +4,15 @@ from .models import priv_use, Apptype, lang_pref,userage,Userinfo,usersoc,derivd
 
 def homeview(request):
     
-    return render(request, '/' )
+    return render(request, '/templates/index.html' )
 
 def createview(request):
     
-    return render(request, '/templates/index.html' )
+    return render(request, '/templates/popup.html' )
+
+def dataview(request):
+
+    return render(request, '/templates/base.html' )
 
 def Sensinfoview(request):
     form = Sensinfo_form
@@ -52,4 +56,4 @@ def infodirview(request):
 
 
 def privacypolicy(request):
-    return render(request, "/")
+    return render(request, "preview.html")
