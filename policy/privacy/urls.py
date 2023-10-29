@@ -4,7 +4,9 @@ from . import views
 
 urlpatterns = [
      path('', views.homeview, name='home'),
-     path('privacy/', views.createview, name='createpolicy'),
+     path('privacy/create', views.createview, name='createpolicy'),
+     path('privacy/data-input', views.dataview, name='data-input'),
+     path('privacy/preview', views.privacypolicy, name='preview'),
      path('privacy/', views.Sensinfoview, name='sensitive'),
      path('privacy/', views.priv_useview, name='priv-pol-used'),
      path('privacy/', views.userinfoview, name='priv-pol-used'),
