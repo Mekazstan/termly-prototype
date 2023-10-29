@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Privacy Policy</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        :root {
+            --content-max-width: 120rem;
+            --content-min-width: 23.4375rem;
+            --content-hpad: 1.5625rem;
+        }
+
+        *  {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            background-color: transparent;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            margin-left: 20px;
+        }
+
+        .main-div {
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            min-height: calc(100vh - var(--header-height));
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            filter: drop-shadow(0rem 0.25rem 0.625rem rgba(0,50,123,.1));
+            border-left: 0.0625rem solid #ebedf4;
+            border-right: 0.0625rem solid #ebedf4;
+            background-color: #fff;
+            max-width: var(--content-max-width);
+            min-width: var(--content-min-width);
+            width: 100%;
+            height: 100%;
+        }
+
+        /* First 20% Div */
+        .left-div {
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            height: auto;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 290px;
+            -ms-flex: 0 0 18.125rem;
+            flex: 0 0 18.125rem;
+            background-color: #f5f6fa;
+        }
+
+        /* Header Section */
+        .header-section {
+            padding: 20px;
+            padding-top: 1.625rem;
+            border-bottom: 1px solid #ebedf4;
+            padding-bottom: 1rem;
+            display:block;
+        }
+
+        .b2db {
+            margin: 0.8125rem 0;
+            margin-bottom: 1.375rem;
+        }
+
+        .back-to-dashboard {
+            color: #6c7794;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .progress {
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .progress-bar-sec {
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-flex: 1;
+            -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
+            font-size: .75rem;
+            height: 1rem;
+            min-width: 100%;
+        }
+
+        .progress-text {
+            display: flex;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: #363840;
+            font-size: .75rem;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .progress-bar {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: middle;
+            margin: auto;
+            width: 100%;
+            height: 0.4375rem;
+            border-radius: 0.1875rem;
+            border: 1px solid #ced4da;
+        }
+
+        .ol-nav {
+            padding: 0;
+            margin-top: 1.3125rem;
+        }
+        /* Ordered List */
+        ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .first-li {
+            width: 100%;
+            cursor: pointer;
+            height: 2.75rem;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-left: var(--content-hpad);
+            padding-right: var(--content-hpad);
+            color: #363840;
+            font-size: .875rem;
+            font-weight: 400;
+            word-break: break-all;
+        }
+        .span-no {
+            width: 1.25rem; 
+        }
+        .span-text {
+            width: 11.375rem;
+            word-break: break-word;
+        }
+
+        /* Second 80% Div */
+        .right-div {
+            padding: 2.625rem;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+
+        /* Top Div */
+        .top-div {
+            width: 100%;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.333;
+            margin: 0 0 1rem;
+            color: #000;
+        }
+
+        .publish-button-div {
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin: 0 0 1rem;
+        }
+
+        .publish-button {
+            border-color: #4672ff;
+            background: #4672ff;
+            border-width: 1px;
+            border-radius: 3px;
+            border-style: solid;
+            color: #fff;
+            padding: 0.625em 2em;
+        }
+
+        /* Horizontal Line */
+        hr {
+            border: none;
+            height: 0.0625rem;
+            background: #ced4da;
+            opacity: .9;
+            margin: 0 0 1.5rem;
+            padding: 0;
+        }
+
+        .side-by-side {
+            display: flex;
+        }
+
+        article {
+            display: block;
+            width: 80%;
+            padding: 20px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #363840;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            padding-bottom: 1.6875rem;
+        }
+
+        .question-section {
+            max-width: 50rem;
+        }
+
+        .side-right {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 1 320px;
+            -ms-flex: 0 1 20rem;
+            flex: 0 1 20rem;
+            background: #fff;
+            min-width: 14rem;
+            margin-left: 2.625rem;
+        }
+
+        /* Questions */
+        .questions {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        footer {
+            position: relative;
+            padding-top: 1.875rem;
+            padding-bottom: 3.125rem;
+            border-top: dashed 0.0625rem #e2e2e2;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+        .save-btn-div {
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        .save-btn {
+            border-color: #4672ff;
+            background: #4672ff;
+            cursor: pointer;
+            border-width: 1px;
+            border-radius: 3px;
+            border-style: solid;
+            color: #fff;
+            padding: 0.625em 2em;
+            font-size: .875em;
+            font-family: Roboto,"Open Sans",Helvetica,Arial;
+            line-height: 1.15;
+            margin: 0;
+            overflow: visible;
+            -webkit-appearance: button;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .main-sec {
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .radio-option {
+            margin-bottom: 10px;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            display: -ms-flexbox;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 1;
+            flex: 0 1;
+            background: #fff;
+            font-size: .875rem;
+        }
+
+        .main-img {
+            margin-bottom: 2rem;
+            background: #f5f6fa;
+            border: 1px solid #e8e8e8;
+            border-radius: 0.25rem;
+            box-shadow: 0 2px 4px rgba(226,226,226,.5);
+        }
+
+        .main-img-div {
+            --background: transparent;
+            --body-color: #595959;
+            --title-color: #000000;
+            background-color: #fff;
+            border: 1px solid #eee;
+            font-size: .375rem;
+            margin: 1rem;
+            max-height: 11.625rem;
+            overflow: hidden;
+            position: relative;
+        }
+        .inner-div-img {
+            padding: 1rem;
+            background: var(--background);
+        }
+
+        .sm-div-one {
+            color: var(--title-color);
+            font-family: var(--title-font-family);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .sm-div-two {
+            margin-top: 1em;
+            font-size: smaller;
+        }
+        .sm-div-three {
+            color: var(--body-color);
+            font-family: var(--body-font-family);
+            margin-top: 3em;
+            line-height: 1.5;
+        }
+
+        .img-div{
+            margin-bottom: 2rem;
+            background: #f5f6fa;
+            border: 1px solid #e8e8e8;
+            border-radius: 0.25rem;
+            box-shadow: 0 2px 4px rgba(226,226,226,.5);
+        }
+
+        /* Image */
+        .image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Preview Button */
+        .preview-button {
+            border-color: #4672ff;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            border-width: 1px;
+            border-radius: 3px;
+            border-style: solid;
+            background: #fff;
+            padding: 0.625em 2em;
+            font-size: .875em;
+            font-family: Roboto,"Open Sans",Helvetica,Arial;
+            text-transform: uppercase;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            line-height: 1.25rem;
+            color: #4672ff;
+        }
+
+        .img-btn {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-right: 0.25rem;
+            border-style: none;
+        }
+        .tips-title {
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            color: #363840;
+            font-weight: 500;
+            margin-bottom: 0.875rem;
+            line-height: 1.43;
+        }
+        .tips-img {
+            height: 1.3125rem;
+            width: 1.1875rem;
+            margin-right: 0.3125rem;
+            border-style: none;
+        }
+        h3 {
+            margin: 0 0 0.3125rem;
+            font-size: .875rem;
+            font-weight: 500;
+            line-height: 1.43;
+            color: #363840;
+            align-items: center;
+        }
+        .new-li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.svg" alt="Logo">
+        </div>
+    </div>
+
+    <div class="main-div">
+        <!-- First 20% Div -->
+        <div class="left-div">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="b2db">
+                    <a class="back-to-dashboard" href="#">&lt; BACK TO DASHBOARD</a>
+                </div>
+                <div class="progress">
+                    <div class="progress-text">
+                        <span>Progress</span>
+                    </div>
+                    <div class="progress-bar-sec">
+                        <div class="progress-bar"></div> 
+                        <div style="width: 2.75rem; text-align: right;font-size: .75rem;font-weight: 500;">0%</div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- Ordered List -->
+            <nav class="ol-nav">
+                <ol>
+                    <li class="first-li">
+                        <span class="span-no">1.</span>
+                        <span class=".span-text">Privacy Policy Uses</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">2.</span>
+                        <span class=".span-text">User Information</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">3.</span>
+                        <span class=".span-text">Collection of Information</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">4.</span>
+                        <span class=".span-text">Use of Information</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">5.</span>
+                        <span class=".span-text">Disclosure of Information</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">6.</span>
+                        <span class=".span-text">Use of Tracking Technologies</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">7.</span>
+                        <span class=".span-text">User Rights</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">8.</span>
+                        <span class=".span-text">Final Details</span></a></li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Second 80% Div -->
+        <div class="right-div">
+            <!-- Top Div -->
+            <div class="top-div">
+                <h1>Privacy Policy</h1>
+                <div class="publish-button-div">
+                    <button class="publish-button">PUBLISH</button>
+                </div>
+            </div>
+
+    <!--         Horizontal Line -->
+            <hr>
+
+            <!-- Side by Side Divs -->
+            <div class="side-by-side">
+                <article>
+                    <!-- Questions -->
+                    <h2>Privacy Policy Uses</h2>
+                    <div class="question-section">
+                        <section class="main-sec">
+                            <h3>What will this Privacy Policy be used for?</h3>
+                             <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="application" value="Website"> Website
+                                </label>
+
+                                <label class="radio-option">
+                                    <input type="radio" name="application" value="Mobile application"> Mobile application
+                                </label>
+
+                                <label class="radio-option">
+                                    <input type="radio" name="application" value="Facebook application"> Facebook application
+                                </label>
+                            </div>
+                        </section>
+                        <footer>
+                            <div></div>
+                            <div class="save-btn-div">
+                                <button class="save-btn">Save & Next</button>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+                <div class="side-right">
+                    <div class="main-img">
+                        <div class="main-img-div">
+                            <div class="inner-div-img">
+                                <div class="sm-div-one">Privacy Policy</div>
+                                <div class="sm-div-two">
+                                    Last updated October 29, 2023
+                                </div>
+                                <div class="sm-div-three">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum commodo lorem eget tincidunt. Curabitur imperdiet commodo risus sed commodo.</p>
+                                    <p>Nullam auctor pellentesque pretium. Mauris blandit est sit amet odio tempus, sit amet viverra ipsum finibus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec bibendum congue ipsum quis ullamcorper. Ut risus lacus, faucibus sit amet cursus vitae, tristique id sapien.</p>
+                                    <p>Vestibulum leo justo, mollis euismod nunc eget, feugiat vulputate enim.</p>
+                                    <p>Suspendisse consectetur ac odio rhoncus commodo. In hac habitasse platea dictumst. In hac habitasse platea dictumst.</p>
+                                    <p>Curabitur egestas rhoncus ante, a lobortis velit ultrices id. Integer blandit tincidunt luctus. Nam efficitur a sapien et placerat. Ut faucibus quis nulla dignissim mollis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="preview-button">
+                        <img class="img-btn" src="eye.svg"> Preview</button>
+                    
+                    <!-- Tips Section -->
+                    <section class="tips-section">
+                        <div class="tips-title">
+                            <img class="tips-img" src="bulb.svg"> Tips:
+                        </div>
+                        <h3>What is a privacy policy?</h3>
+                        <p>
+                            <div>
+                                A privacy policy (also referred to as a privacy notice) is a statement or legal document that describes how a company, website, or app collects, uses, maintains, and shares information collected from or about its users. Most countries require any website that collects personal information from its users to have a written privacy policy posted on the website.
+                            </div>
+                            <div>
+                                <br>
+                            </div>
+                            <div>
+                                <strong>Does Termly's Privacy Policy Generator cover all privacy laws?</strong>
+                            </div>
+                            <div>
+                                <br>
+                            </div>
+                            <div>
+                                Termly’s Privacy Policy Generator is designed to help you comply with the following regions:
+                            </div>
+                            <ul>
+                                <li class="new-li">EU (GDPP)</li>
+                                <li class="new-li">UK (UK GDPR)</li>
+                                <li class="new-li">California (CCPA, CPRA, and CalOPPA)</li>
+                                <li class="new-li">Colorado (CPA)</li>
+                                <li class="new-li">Connecticut (CTDPA)</li>
+                                <li class="new-li">Utah (UCPA)</li>
+                                <li class="new-li">Virginia (VCDPA)</li>
+                                <li class="new-li">Canada (PIPEDA)</li>
+                                <li class="new-li">Quebec (Law 25)</li>
+                                <li class="new-li">Australia (Privacy Act 1988)</li>
+                                <li class="new-li">New Zealand (Privacy Act 2020)</li>
+                                <li class="new-li">South Africa (POPIA)</li>
+                                <li class="new-li">Switzerland (FADP)</li>
+                            </ul>
+                            <div>
+                                In many cases, our Privacy Policy Generator could help you comply with other privacy laws. However, Termly’s products aren’t specifically built to comply with laws outside of the above list. We recommend consulting with a local attorney for any laws not yet specifically included in our offerings. Learn more about which <a href="" target="_blank">privacy laws Termly's Privacy Policy Generator covers</a>
+                            </div>
+                            <div>
+                                <strong>
+                                    <br>
+                                </strong>
+                            </div>
+                            <div>
+                                <strong>How does Termly help you keep your privacy policy up to date?</strong>
+                            </div>
+                            <div>
+                                <br>
+                            </div>
+                            <div>
+                                Termly publishes <a href="" target="_blank">periodic version updates to policies</a>
+                            </div>
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
