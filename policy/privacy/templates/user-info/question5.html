@@ -6,20 +6,21 @@
             <h3><strong>Can users create an account or register with your website or app?</strong></h3>
             <div class="checkbox-group">
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="1" name="sourceInfo"> Yes
+                    <input type="radio" class="checkbox-option" value="Yes" name="create_register"> Yes
                 </label>
 
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="2" name="sourceInfo"> No
+                    <input type="radio" class="checkbox-option" value="No" name="create_register"> No
                 </label>
             </div>
         </section>
         <footer>
             <div>
-                <button class="back-btn"><strong>Back</strong></button>
+                <button hx-get="question4" hx-target="article" class="back-btn"><strong>Back</strong></button>
             </div>
             <div class="save-btn-div">
-                <button class="save-btn">Save & Next</button>
+                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+               <!--  <button hx-get="question6" hx-target="article" class="save-btn">Save & Next</button> -->
             </div>
         </footer>
     </div>

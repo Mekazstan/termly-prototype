@@ -6,20 +6,21 @@
             <h3><strong>What type of English spelling do you want to be used in this Privacy Policy?</strong></h3>
             <div class="checkbox-group">
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="1" name="sourceInfo"> American English
+                    <input type="radio" class="checkbox-option" value="American English" name="english_spelling"> American English
                 </label>
 
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="2" name="sourceInfo"> British English
+                    <input type="radio" class="checkbox-option" value="British English" name="english_spelling"> British English
                 </label>
             </div>
         </section>
         <footer>
             <div>
-                <button class="back-btn"><strong>Back</strong></button>
+                <button hx-get="question2" hx-target="article" class="back-btn"><strong>Back</strong></button>
             </div>
             <div class="save-btn-div">
-                <button class="save-btn">Save & Next</button>
+                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+               <!--  <button hx-get="question4" hx-target="article" class="save-btn">Save & Next</button> -->
             </div>
         </footer>
     </div>

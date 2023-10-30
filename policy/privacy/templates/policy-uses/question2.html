@@ -9,16 +9,6 @@
                 <input type="text" name="website_url" placeholder="www.example.com" class="url-input">
             </div>
         </section>
-        <footer>
-            <div>
-                <button class="back-btn"><strong>Back</strong></button>
-            </div>
-            <div class="save-btn-div">
-                <button class="save-btn">Save & Next</button>
-            </div>
-        </footer>
-    </div>
-    <div class="question-section">
         <section class="main-sec">
             <h3><strong>What is the name of your mobile application?</strong></h3>
             <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">Enter the full name of your mobile app.</p>
@@ -35,11 +25,13 @@
         </section>
         <footer>
             <div>
-                <button class="back-btn"><strong>Back</strong></button>
+                <button hx-get="question1" hx-target="article" class="back-btn"><strong>Back</strong></button>
             </div>
             <div class="save-btn-div">
-                <button class="save-btn">Save & Next</button>
+                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
             </div>
         </footer>
     </div> 
 </article>
+
+<!-- hx-get="question3" hx-target="article"  -->

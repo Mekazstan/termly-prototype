@@ -56,32 +56,7 @@ class DerivDataForm(forms.ModelForm):
         model = DerivData
         fields = ['option']
 
-class UserGeolocationForm(forms.ModelForm):
+class InfoAppForm(forms.ModelForm):
     class Meta:
-        model = UserGeolocation
-        fields = ['user_will_request_geolocation']
-
-class UserMobileDeviceForm(forms.ModelForm):
-    class Meta:
-        model = UserMobileDevice
-        fields = ['user_will_request_features']
-
-class UserDeviceInfoForm(forms.ModelForm):
-    class Meta:
-        model = UserDeviceInfo
-        fields = ['user_will_collect_device_info']
-
-class PushNotificationsForm(forms.ModelForm):
-    class Meta:
-        model = PushNotifications
-        fields = ['user_will_send_push_notifications']
-
-class OfferWallForm(forms.ModelForm):
-    class Meta:
-        model = OfferWall
-        fields = ['has_offer_wall']
-
-class OtherSourcesForm(forms.ModelForm):
-    class Meta:
-        model = OtherSources
-        fields = ['option']
+        model = InfoApp
+        fields = ['user_will_request_geolocation', 'user_will_request_features', 'user_will_collect_device_info', 'user_will_send_push_notifications', 'has_offer_wall']

@@ -1,0 +1,37 @@
+<article>
+    <!-- Questions -->
+    <h2><strong>Privacy Policy Uses</strong></h2>
+    <div class="question-section">
+        <form method="post" action="{% url 'data-input' %}">
+            {% csrf_token %}
+            <section class="main-sec">
+                <h3><strong>What will this Privacy Policy be used for?</strong></h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-option" name="website" value="True"> Website
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-option" name="mobile_application" value="True"> Mobile application
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-option" name="facebook_application" value="True"> Facebook application
+                    </label>
+                </div>
+            </section>
+            <footer>
+                <div></div>
+                <div class="save-btn-div">
+                    <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+                </div>
+            </footer>
+        </form>
+
+    </div>
+</article>
+
+                <!-- <div class="save-btn-div" hx-trigger="click">
+                    <button class="save-btn" hx-post="question1" >Save & Next</button>
+                   <button class="hidden" hx-get="question2" hx-target="article" ></button>
+                </div>  hx-get="question2" hx-target="article" -->

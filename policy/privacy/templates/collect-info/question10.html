@@ -7,20 +7,21 @@
             <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">If you use tracking and analytics services such as Google Analytics, you are likely collecting derivative data.</p>
             <div class="checkbox-group">
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="1" name="sourceInfo"> Yes
+                    <input type="radio" class="checkbox-option" value="Yes" name="personalInfo"> Yes
                 </label>
 
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="2" name="sourceInfo"> No
+                    <input type="radio" class="checkbox-option" value="No" name="personalInfo"> No
                 </label>
             </div>
         </section>
         <footer>
             <div>
-                <button class="back-btn"><strong>Back</strong></button>
+                <button hx-get="question9" hx-target="article" class="back-btn"><strong>Back</strong></button>
             </div>
             <div class="save-btn-div">
-                <button class="save-btn">Save & Next</button>
+                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+                <!-- <button hx-get="question11" hx-target="article" class="save-btn">Save & Next</button> -->
             </div>
         </footer>
     </div>

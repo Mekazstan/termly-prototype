@@ -7,39 +7,39 @@
             <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">"Collect directly" means the user directly provides you with this information. For example, a user may give you their name and email address when signing up for an account on your site.</p>
             <div class="checkbox-group">
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox1" value="1"> Names
+                    <input type="checkbox" class="checkbox-option" name="names" value="True"> Names
                 </label>
 
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox2" value="2"> Phone numbers
+                    <input type="checkbox" class="checkbox-option" name="phone_numbers" value="True"> Phone numbers
                 </label>
 
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox3" value="3"> Email addresses
+                    <input type="checkbox" class="checkbox-option" name="email_addresses" value="True"> Email addresses
                 </label>
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox4" value="1"> Mailing addresses
+                    <input type="checkbox" class="checkbox-option" name="mailing_addresses" value="True"> Mailing addresses
                 </label>
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox5" value="1"> Job titles
+                    <input type="checkbox" class="checkbox-option" name="job_titles" value="True"> Job titles
                 </label>
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox6" value="1"> Usernames
+                    <input type="checkbox" class="checkbox-option" name="usernames" value="True"> Usernames
                 </label>
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox7" value="1"> Passwords
+                    <input type="checkbox" class="checkbox-option" name="passwords" value="True"> Passwords
                 </label>
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox8" value="1"> Contact preferences
+                    <input type="checkbox" class="checkbox-option" name="contact_preferences" value="True"> Contact preferences
                 </label>
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox9" value="1"> Contact or authentication data
+                    <input type="checkbox" class="checkbox-option" name="contact_auth_data" value="True"> Contact or authentication data
                 </label>
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox10" value="1"> Biling addresses
+                    <input type="checkbox" class="checkbox-option" name="biling_addresses" value="True"> Biling addresses
                 </label>
                 <label class="checkbox-label">
-                    <input type="checkbox" class="checkbox-option" name="myCheckbox11" value="1"> Debit/credit card numbers
+                    <input type="checkbox" class="checkbox-option" name="card_numbers" value="True"> Debit/credit card numbers
                 </label>
             </div>
             <label style="    display: block;margin-bottom: 0.625rem;font-size: .875rem;font-weight: 500;color: #545454;"><strong>Add your own</strong>
@@ -51,10 +51,11 @@
         </section>
         <footer>
             <div>
-                <button class="back-btn"><strong>Back</strong></button>
+                <button hx-get="question6" hx-target="article" class="back-btn"><strong>Back</strong></button>
             </div>
             <div class="save-btn-div">
-                <button class="save-btn">Save & Next</button>
+                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+                <!-- <button hx-get="question8" hx-target="article" class="save-btn">Save & Next</button> -->
             </div>
         </footer>
     </div>

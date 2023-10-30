@@ -6,20 +6,20 @@
             <h3><strong>Are you collecting personal information about your users from other sources?</strong></h3>
             <div class="checkbox-group">
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="1" name="sourceInfo"> Yes
+                    <input type="radio" class="checkbox-option" value="Yes" name="sourceInfo"> Yes
                 </label>
 
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="2" name="sourceInfo"> No
+                    <input type="radio" class="checkbox-option" value="No" name="sourceInfo"> No
                 </label>
             </div>
         </section>
         <footer>
             <div>
-                <button class="back-btn"><strong>Back</strong></button>
+                <button hx-get="question10" hx-target="article" class="back-btn"><strong>Back</strong></button>
             </div>
             <div class="save-btn-div">
-                <button class="save-btn">Save & Next</button>
+                <button hx-get="#" hx-target="article" class="save-btn">Finish</button>
             </div>
         </footer>
     </div>

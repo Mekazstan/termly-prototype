@@ -56,7 +56,7 @@ ROOT_URLCONF = 'policy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'privacy', 'templates', 'collect-info', 'policy-uses', 'user-info')],
+        'DIRS': [os.path.join(BASE_DIR, 'privacy', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

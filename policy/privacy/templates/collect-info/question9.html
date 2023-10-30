@@ -6,20 +6,21 @@
             <h3><strong>Can users register for your website or app using Facebook, Google, or other social media accounts?</strong></h3>
             <div class="checkbox-group">
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="1" name="sourceInfo"> Yes
+                    <input type="radio" class="checkbox-option" value="Yes" name="socials"> Yes
                 </label>
 
                 <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="2" name="sourceInfo"> No
+                    <input type="radio" class="checkbox-option" value="No" name="socials"> No
                 </label>
             </div>
         </section>
         <footer>
             <div>
-                <button class="back-btn"><strong>Back</strong></button>
+                <button hx-get="question8" hx-target="article" class="back-btn"><strong>Back</strong></button>
             </div>
             <div class="save-btn-div">
-                <button class="save-btn">Save & Next</button>
+                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+                <!-- <button hx-get="question10" hx-target="article" class="save-btn">Save & Next</button> -->
             </div>
         </footer>
     </div>
