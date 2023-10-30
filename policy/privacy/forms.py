@@ -1,52 +1,87 @@
-from .models import priv_use, Apptype, lang_pref,userage,Userinfo,usersoc,derivdata,othersocial,Sensinfo,InfoDir
 from django import forms
+from .models import *
 
-class priv_use_form(forms.ModelForm):
+class PrivacyPolicyAnswerForm(forms.ModelForm):
     class Meta:
-        model = priv_use
+        model = PrivacyPolicyAnswer
+        fields = ['website', 'mobile_application', 'facebook_application']
+
+class UrlAnswerForm(forms.ModelForm):
+    class Meta:
+        model = UrlAnswer
+        fields = ['website', 'mobile_application', 'facebook_application']
+
+class EnglishSpellingOptionForm(forms.ModelForm):
+    class Meta:
+        model = EnglishSpellingOption
+        fields = ['name']
+
+class UserLocationForm(forms.ModelForm):
+    class Meta:
+        model = UserLocation
+        fields = ['US_users', 'EU_users', 'Canada_users']
+
+class RegistrationOptionForm(forms.ModelForm):
+    class Meta:
+        model = RegistrationOption
+        fields = ['option']
+
+class UserAgeForm(forms.ModelForm):
+    class Meta:
+        model = UserAge
+        fields = ['target_users_under_18']
+
+class PersonalInfoOptionForm(forms.ModelForm):
+    class Meta:
+        model = PersonalInfoOption
+        fields = ['name']
+
+class SelectedInfoForm(forms.ModelForm):
+    class Meta:
+        model = SelectedInfo
         fields = ['selected_options']
 
-class Apptype_form(forms.ModelForm):
+class SensitiveInfoForm(forms.ModelForm):
     class Meta:
-        model = Apptype
-        fields = ['websitename','appname', 'faceappname']
-        
-class lang_pref_form(forms.ModelForm):
-    class Meta:
-        model = lang_pref
-        fields = ['selected_option']
+        model = SensitiveInfo
+        fields = ['option']
 
-class userage_form(forms.ModelForm):
+class SocialRegForm(forms.ModelForm):
     class Meta:
-        model = userage
-        fields = ['selected_option']
+        model = SocialReg
+        fields = ['option']
 
-class Userinfo_form(forms.ModelForm):
+class DerivDataForm(forms.ModelForm):
     class Meta:
-        model = Userinfo
-        fields = ['selected_option']
+        model = DerivData
+        fields = ['option']
 
-class usersoc_form(forms.ModelForm):
+class UserGeolocationForm(forms.ModelForm):
     class Meta:
-        model = usersoc
-        fields = ['selected_option']
+        model = UserGeolocation
+        fields = ['user_will_request_geolocation']
 
-class derivdata_form(forms.ModelForm):
+class UserMobileDeviceForm(forms.ModelForm):
     class Meta:
-        model = derivdata
-        fields = ['selected_option']
+        model = UserMobileDevice
+        fields = ['user_will_request_features']
 
-class othersocial_form(forms.ModelForm):
+class UserDeviceInfoForm(forms.ModelForm):
     class Meta:
-        model = othersocial
-        fields = ['selected_option']
+        model = UserDeviceInfo
+        fields = ['user_will_collect_device_info']
 
-class Sensinfo_form(forms.ModelForm):
+class PushNotificationsForm(forms.ModelForm):
     class Meta:
-        model = Sensinfo
-        fields = ['selected_option']
+        model = PushNotifications
+        fields = ['user_will_send_push_notifications']
 
-class Infodir_form(forms.ModelForm):
+class OfferWallForm(forms.ModelForm):
     class Meta:
-        model = InfoDir
-        fields = ['selected_options']
+        model = OfferWall
+        fields = ['has_offer_wall']
+
+class OtherSourcesForm(forms.ModelForm):
+    class Meta:
+        model = OtherSources
+        fields = ['option']
