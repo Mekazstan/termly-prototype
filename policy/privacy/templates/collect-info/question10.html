@@ -2,27 +2,30 @@
     <!-- Questions -->
     <h2><strong>Personal Information Collected Automatically (Derivative Data)</strong></h2>
     <div class="question-section">
-        <section class="main-sec">
-            <h3><strong>Will you be collecting any derivative data from your users?</strong></h3>
-            <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">If you use tracking and analytics services such as Google Analytics, you are likely collecting derivative data.</p>
-            <div class="checkbox-group">
-                <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="Yes" name="personalInfo"> Yes
-                </label>
+        <form method="post" action="{% url 'question10' %}">
+            {% csrf_token %}
+            <section class="main-sec">
+                <h3><strong>Will you be collecting any derivative data from your users?</strong></h3>
+                <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">If you use tracking and analytics services such as Google Analytics, you are likely collecting derivative data.</p>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="Yes" name="personalInfo"> Yes
+                    </label>
 
-                <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="No" name="personalInfo"> No
-                </label>
-            </div>
-        </section>
-        <footer>
-            <div>
-                <button hx-get="question9" hx-target="article" class="back-btn"><strong>Back</strong></button>
-            </div>
-            <div class="save-btn-div">
-                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
-                <!-- <button hx-get="question11" hx-target="article" class="save-btn">Save & Next</button> -->
-            </div>
-        </footer>
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="No" name="personalInfo"> No
+                    </label>
+                </div>
+            </section>
+            <footer>
+                <div>
+                    <button hx-get="question9" hx-target="article" class="back-btn"><strong>Back</strong></button>
+                </div>
+                <div class="save-btn-div">
+                    <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+                    <!-- <button hx-get="question11" hx-target="article" class="save-btn">Save & Next</button> -->
+                </div>
+            </footer>
+        </form>
     </div>
 </article>

@@ -1,26 +1,79 @@
 <article>
     <!-- Questions -->
-    <h2><strong>Personal Information from Other Sources</strong></h2>
+    <h2><strong>Personal Information from Applications</strong></h2>
     <div class="question-section">
-        <section class="main-sec">
-            <h3><strong>Are you collecting personal information about your users from other sources?</strong></h3>
-            <div class="checkbox-group">
-                <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="Yes" name="sourceInfo"> Yes
-                </label>
+        <form method="post" action="{% url 'question11' %}">
+            {% csrf_token %}
+            <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">The following questions pertain to your application(s).</p>
+            <section class="main-sec">
+                <h3><strong>Will you be requesting access to your users' geolocations?</strong></h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="Yes" name="geolocations"> Yes
+                    </label>
 
-                <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="No" name="sourceInfo"> No
-                </label>
-            </div>
-        </section>
-        <footer>
-            <div>
-                <button hx-get="question10" hx-target="article" class="back-btn"><strong>Back</strong></button>
-            </div>
-            <div class="save-btn-div">
-                <button hx-get="#" hx-target="article" class="save-btn">Finish</button>
-            </div>
-        </footer>
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="No" name="geolocations"> No
+                    </label>
+                </div>
+            </section>
+            <section class="main-sec">
+                <h3><strong>Will you be requesting access to features on your users' mobile devices?</strong></h3>
+                <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">Features may include contacts, calendars, bluetooth, etc.</p>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="Yes" name="features"> Yes
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="No" name="features"> No
+                    </label>
+                </div>
+            </section>
+            <section class="main-sec">
+                <h3><strong>Will you be collecting any information regarding your users' mobile devices?</strong></h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="Yes" name="infomobile"> Yes
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="No" name="infomobile"> No
+                    </label>
+                </div>
+            </section>
+            <section class="main-sec">
+                <h3><strong>Will you be sending push notifications to your users?</strong></h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="Yes" name="pushnotify"> Yes
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="No" name="pushnotify"> No
+                    </label>
+                </div>
+            </section>
+            <section class="main-sec">
+                <h3><strong>Does your mobile app have an “offer wall”?</strong></h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="Yes" name="offerwall"> Yes
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="No" name="offerwall"> No
+                    </label>
+                </div>
+            </section>
+            <footer>
+                <div>
+                    <button hx-get="question10" hx-target="article" class="back-btn"><strong>Back</strong></button>
+                </div>
+                <div class="save-btn-div">
+                    <button type="submit" class="save-btn">Finish</button>
+                </div>
+            </footer>
+        </form>
     </div>
 </article>

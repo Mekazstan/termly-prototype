@@ -44,7 +44,7 @@ class UserLocation(models.Model):
         app_label = 'privacy'
 
 class RegistrationOption(models.Model):
-    option = models.CharField(default="No", max_length=3, choices=[("Yes", "Yes"), ("No", "No")])
+    option = models.CharField(default="No", null=True, max_length=3, choices=[("Yes", "Yes"), ("No", "No")])
 
     def __str__(self):
         return self.option
@@ -62,6 +62,7 @@ class UserAge(models.Model):
         max_length=3,
         choices=choices,
         default="No",
+        null=True
     )
 
     def __str__(self):
@@ -86,7 +87,7 @@ class SelectedInfo(models.Model):
         app_label = 'privacy'
 
 class SensitiveInfo(models.Model):
-    option = models.CharField(default="No", max_length=3, choices=[("Yes", "Yes"), ("No", "No")])
+    option = models.CharField(default="No", null=True, max_length=3, choices=[("Yes", "Yes"), ("No", "No")])
 
     def __str__(self):
         return self.option
@@ -95,7 +96,7 @@ class SensitiveInfo(models.Model):
         app_label = 'privacy'
 
 class SocialReg(models.Model):
-    option = models.CharField(default="No", max_length=3, choices=[("Yes", "Yes"), ("No", "No")])
+    option = models.CharField(default="No", null=True, max_length=3, choices=[("Yes", "Yes"), ("No", "No")])
 
     def __str__(self):
         return self.option
@@ -104,7 +105,7 @@ class SocialReg(models.Model):
         app_label = 'privacy'
 
 class DerivData(models.Model):
-    option = models.CharField(default="No", max_length=3, choices=[("Yes", "Yes"), ("No", "No")])
+    option = models.CharField(default="No", null=True, max_length=3, choices=[("Yes", "Yes"), ("No", "No")])
 
     def __str__(self):
         return self.option
@@ -113,24 +114,28 @@ class DerivData(models.Model):
         app_label = 'privacy'
 
 class InfoApp(models.Model):
-    user_will_request_geolocation = models.BooleanField(null=True,
-        blank=True,
+    choices = [
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    ]
+    user_will_request_geolocation = models.CharField(null=True, choices=choices,
+        blank=True, max_length=50,
         verbose_name="Will you be requesting access to your users' geolocations?"
     )
-    user_will_request_features = models.BooleanField(null=True,
-        blank=True,
+    user_will_request_features = models.CharField(null=True, choices=choices,
+        blank=True, max_length=50,
         verbose_name="Will you be requesting access to features on your users' mobile devices?"
     )
-    user_will_collect_device_info = models.BooleanField(null=True,
-        blank=True,
+    user_will_collect_device_info = models.CharField(null=True, choices=choices,
+        blank=True, max_length=50,
         verbose_name="Will you be collecting any information regarding your users' mobile devices?"
     )
-    user_will_send_push_notifications = models.BooleanField(null=True,
-        blank=True,
+    user_will_send_push_notifications = models.CharField(null=True, choices=choices,
+        blank=True, max_length=50,
         verbose_name="Will you be sending push notifications to your users?"
     )
-    has_offer_wall = models.BooleanField(null=True,
-        blank=True,
+    has_offer_wall = models.CharField(null=True, choices=choices,
+        blank=True, max_length=50,
         verbose_name="Does your mobile app have an 'offer wall'?"
     )
 

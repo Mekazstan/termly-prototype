@@ -91,7 +91,7 @@ def question4(request):
     return render(request, './user-info/question4.html' ,{"form": form} )
 
 def question5(request):
-    if request.method =="POST":
+    if request.method == "POST":
         option = request.POST.get('create_register')
 
         option_url = RegistrationOption(
@@ -101,8 +101,14 @@ def question5(request):
     return render(request, './user-info/question5.html')
 
 def question6(request):
-    form = UserAgeForm
-    return render(request, './user-info/question6.html' ,{"form": form} )
+    if request.method == "POST":
+        user_age = request.POST.get('age')
+
+        users_age = UserAge(
+            target_users_under_18 = user_age,
+        )
+        users_age.save()
+    return render(request, './user-info/question6.html')
 
 def question7(request):
     form1 = PersonalInfoOptionForm 
@@ -110,17 +116,49 @@ def question7(request):
     return render(request, './collect-info/question7.html' ,{"form1": form1, "form2": form2} )
 
 def question8(request):
-    form = SensitiveInfoForm
-    return render(request, './collect-info/question8.html' ,{"form": form} )
+    if request.method == "POST":
+        option = request.POST.get('sensitiveInfo')
+
+        sensitive_info = SensitiveInfo(
+            option = option,
+        )
+        sensitive_info.save()
+    return render(request, './collect-info/question8.html')
 
 def question9(request):
-    form = SocialRegForm
-    return render(request, './collect-info/question9.html' ,{"form": form} )
+    if request.method == "POST":
+        option = request.POST.get('socials')
+
+        social_reg = SocialReg(
+            option = option,
+        )
+        social_reg.save()
+    return render(request, './collect-info/question9.html')
 
 def question10(request):
-    form = DerivDataForm
-    return render(request, './collect-info/question10.html' ,{"form": form} )
+    if request.method == "POST":
+        option = request.POST.get('personalInfo')
+
+        deriv_data = DerivData(
+            option = option,
+        )
+        deriv_data.save()
+    return render(request, './collect-info/question10.html')
 
 def question11(request):
-    form = InfoAppForm
-    return render(request, './collect-info/question11.html' ,{"form": form} )
+    if request.method == "POST":
+        user_will_request_geolocation = request.POST.get('geolocations')
+        user_will_request_features = request.POST.get('features')
+        user_will_collect_device_info = request.POST.get('infomobile')
+        user_will_send_push_notifications = request.POST.get('pushnotify')
+        has_offer_wall = request.POST.get('offerwall')
+
+        info_app = InfoApp(
+            user_will_request_geolocation = user_will_request_geolocation,
+            user_will_request_features = user_will_request_features,
+            user_will_collect_device_info = user_will_collect_device_info,
+            user_will_send_push_notifications = user_will_send_push_notifications,
+            has_offer_wall = has_offer_wall
+        )
+        info_app.save()
+    return render(request, './collect-info/question11.html')
