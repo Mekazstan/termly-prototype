@@ -27,11 +27,35 @@
                 </div>
             </footer>
         </form>
-
     </div>
 </article>
 
-                <!-- <div class="save-btn-div" hx-trigger="click">
-                    <button class="save-btn" hx-post="question1" >Save & Next</button>
-                   <button class="hidden" hx-get="question2" hx-target="article" ></button>
-                </div>  hx-get="question2" hx-target="article" -->
+<script>
+    $(document).ready(function() {
+        $("#save-button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Serialize the form data
+            var formData = $("form").serialize();
+
+            // Perform a POST request
+            $.ajax({
+                type: "POST",
+                url: "{% url 'question1' %}", // Update with your URL
+                data: formData,
+                success: function(response) {
+                    // Successfully posted data
+                    // Now perform a GET request to update the content
+                    $.get("{% url 'question2' %}", function(data) {
+                        // Update the 'article' section with the new content
+                        $("article").html(data);
+                    });
+                },
+                error: function(error) {
+                    // Handle the error if the POST request fails
+                    console.log("POST request failed:", error);
+                }
+            });
+        });
+    });
+    </script>

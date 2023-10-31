@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+<<<<<<< HEAD
 from django.db.models import Q
+=======
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from django.template.defaultfilters import striptags
+from django.utils.safestring import mark_safe
+>>>>>>> 8594739 (Dynamic Rendering)
 from .models import (
     PrivacyPolicyAnswer, UrlAnswer, EnglishSpellingOption, UserLocation, RegistrationOption,
     UserAge, PersonalInfoOption, SelectedInfo, SensitiveInfo, SocialReg, DerivData,
@@ -57,7 +64,6 @@ def question1(request):
             facebook_application=facebook_application
         )
         privacy_answer.save()
-           
       
     return render(request, './policy-uses/question1.html')
 
@@ -122,6 +128,7 @@ def question6(request):
         users_age.save()
     return render(request, './user-info/question6.html')
 
+<<<<<<< HEAD
 # def question7(request):
 #     objects = PersonalInfoOption.objects.all()
 #     new_list = []
@@ -157,6 +164,12 @@ def question6(request):
         # Add each selected option separately to the ManyToMany field
         
 
+=======
+def question7(request):
+    # form1 = PersonalInfoOptionForm 
+    # form2 = SelectedInfoForm
+    return render(request, './collect-info/question7.html' ,{"form1": form1, "form2": form2} )
+>>>>>>> 8594739 (Dynamic Rendering)
 
 def question8(request):
     if request.method == "POST":
@@ -206,7 +219,21 @@ def question11(request):
         info_app.save()
     return render(request, './collect-info/question11.html')
 
+<<<<<<< HEAD
 def create_personal_info(request):
     if request.method == "POST":
         pass
     return render(request, './collect-info/question7.html')
+=======
+
+def add_data(request):
+    if request.method == 'POST':
+        data = request.POST.get('data', '')
+        # You can process or save the data as needed
+
+        # Return a rendered HTML response with the updated content
+        response_html = render_to_string('addform.html', {'data': data})
+        return HttpResponse(response_html)
+
+    return render(request, 'addform.html')
+>>>>>>> 8594739 (Dynamic Rendering)

@@ -17,5 +17,6 @@ urlpatterns = [
      path('privacy/question8', views.question8, name='question8'),
      path('privacy/question9', views.question9, name='question9'),
      path('privacy/question10', views.question10, name='question10'),
-     path('privacy/question11', views.question11, name='question11')
+     path('privacy/question11', views.question11, name='question11'),
+     path('add-data', views.add_data, name='add-data')
      ]

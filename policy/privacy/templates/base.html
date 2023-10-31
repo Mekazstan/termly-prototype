@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Privacy Policy</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
     <style>
         body {
@@ -653,7 +654,11 @@
             <!-- Side by Side Divs -->
             <div class="side-by-side">
                 <!-- Include the dynamic content from the "article.html" template -->
+<<<<<<< HEAD
                 {% include './collect-info/question7.html' %}
+=======
+                {% include './policy-uses/question1.html' %}
+>>>>>>> 8594739 (Dynamic Rendering)
                 <div class="side-right">
                     <div class="main-img">
                         <div class="main-img-div">
@@ -735,30 +740,6 @@
             </div>
         </div>
     </div>
-    <!-- <script>
-        document.getElementById('save-button').addEventListener('click', function(event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
-
-            // Delay the hx-get request by 1.5 seconds (1500 milliseconds)
-            setTimeout(function() {
-                // Get the target and URL for the hx-get request
-                const target = 'article'; // Replace with your actual target selector
-                const url = "{% url 'question2' %}"; // Replace with the actual URL
-
-                // Use hx-trigger to update the article with the new response
-                const hxTrigger = document.createElement('button');
-                hxTrigger.setAttribute('hx-get', url);
-                hxTrigger.style.display = 'none'; // Hide the button
-
-                // Append the hx-trigger button to the target element
-                document.querySelector(`[hx-target="${target}"]`).appendChild(hxTrigger);
-
-                // Trigger the hx-get request by clicking the hidden button
-                hxTrigger.click();
-            }, 1500);  // Adjust the delay time as needed
-        });
-    </script> -->
-
+    
 </body>
 </html>

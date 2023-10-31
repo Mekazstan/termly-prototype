@@ -68,12 +68,43 @@
             </section>
             <footer>
                 <div>
-                    <button hx-get="question10" hx-target="article" class="back-btn"><strong>Back</strong></button>
+                    <button class="back-btn"><strong>Back</strong></button>
                 </div>
                 <div class="save-btn-div">
-                    <button type="submit" class="save-btn">Finish</button>
+                    <button id='save-button' type="submit" class="save-btn">Finish</button>
                 </div>
             </footer>
         </form>
     </div>
 </article>
+
+
+<script>
+    $(document).ready(function() {
+        $("#save-button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Serialize the form data
+            var formData = $("form").serialize();
+
+            // Perform a POST request
+            $.ajax({
+                type: "POST",
+                url: "{% url 'question11' %}", // Update with your URL
+                data: formData,
+                success: function(response) {
+                    // Successfully posted data
+                    // Now perform a GET request to update the content
+                    $.get("{% url 'preview' %}", function(data) {
+                        // Update the 'article' section with the new content
+                        $("article").html(data);
+                    });
+                },
+                error: function(error) {
+                    // Handle the error if the POST request fails
+                    console.log("POST request failed:", error);
+                }
+            });
+        });
+    });
+</script>

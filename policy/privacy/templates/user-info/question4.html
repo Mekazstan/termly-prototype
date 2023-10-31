@@ -2,6 +2,7 @@
     <!-- Questions -->
     <h2><strong>User Location</strong></h2>
     <div class="question-section">
+<<<<<<< HEAD
         <form action="{% url 'question4' %}" method="post">
             {% csrf_token %}
             <section class="main-sec">
@@ -52,5 +53,83 @@
             </footer>
         </form>
        
+=======
+        <section class="main-sec">
+            <h3><strong>Do you have users in the United States?</strong></h3>
+            <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">California, Colorado, Connecticut, Utah, or Virginia</p>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="radio" class="checkbox-option" value="Yes" name="location"> Yes
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="radio" class="checkbox-option"value="No" name="location"> No
+                </label>
+            </div>
+        </section>
+        <section class="main-sec">
+            <h3><strong>Do you have users in the EU, UK, Switzerland, Iceland, Liechtenstein, or Norway?</strong></h3>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="radio" class="checkbox-option" value="Yes" name="country"> Yes
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="radio" class="checkbox-option"value="No" name="country"> No
+                </label>
+            </div>
+        </section>
+        <section class="main-sec">
+            <h3><strong>Do you have users in Canada?</strong></h3>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="radio" class="checkbox-option" value="Yes" name="canada"> Yes
+                </label>
+
+                <label class="checkbox-label">
+                    <input type="radio" class="checkbox-option"value="No" name="canada"> No
+                </label>
+            </div>
+        </section>
+        <footer>
+            <div>
+                <button class="back-btn"><strong>Back</strong></button>
+            </div>
+            <div class="save-btn-div">
+                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+               <!--  <button hx-get="question5" hx-target="article"  class="save-btn">Save & Next</button> -->
+            </div>
+        </footer>
+>>>>>>> 8594739 (Dynamic Rendering)
     </div>
 </article>
+
+<script>
+    $(document).ready(function() {
+        $("#save-button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Serialize the form data
+            var formData = $("form").serialize();
+
+            // Perform a POST request
+            $.ajax({
+                type: "POST",
+                url: "{% url 'question4' %}", // Update with your URL
+                data: formData,
+                success: function(response) {
+                    // Successfully posted data
+                    // Now perform a GET request to update the content
+                    $.get("{% url 'question5' %}", function(data) {
+                        // Update the 'article' section with the new content
+                        $("article").html(data);
+                    });
+                },
+                error: function(error) {
+                    // Handle the error if the POST request fails
+                    console.log("POST request failed:", error);
+                }
+            });
+        });
+    });
+</script>
