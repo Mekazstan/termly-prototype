@@ -1,13 +1,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-<<<<<<< HEAD
-from django.db.models import Q
-=======
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.template.defaultfilters import striptags
 from django.utils.safestring import mark_safe
->>>>>>> 8594739 (Dynamic Rendering)
 from .models import (
     PrivacyPolicyAnswer, UrlAnswer, EnglishSpellingOption, UserLocation, RegistrationOption,
     UserAge, PersonalInfoOption, SelectedInfo, SensitiveInfo, SocialReg, DerivData,
@@ -30,20 +26,6 @@ def createview(request):
 
 
 def dataview(request):
-    page_mapping = {
-    'question1': './policy-uses/question1.html',
-    'question2': './policy-uses/question2.html',
-    'question3': './policy-uses/question3.html',
-    'question4': './user-info/question4.html',
-    'question5': './user-info/question5.html',
-    'question6': './user-info/question6.html',
-    'question7': './collect-info/question7.html',
-    'question8': './collect-info/question8.html',
-    'question9': './collect-info/question9.html',
-    'question10': './collect-info/question10.html',
-    'question11': './collect-info/question11.html',
-}
-    # current_question = "question1"
    
     return render(request, 'base.html')
    
@@ -83,7 +65,6 @@ def question2(request):
     return render(request, './policy-uses/question2.html')
 
 def question3(request):
-    
     if request.method == "POST":
         lang_name = request.POST.get("english_spelling")
 
@@ -91,18 +72,19 @@ def question3(request):
             name = lang_name
         )
         language.save()
+
     return render(request, './policy-uses/question3.html')
 
 def question4(request):
     if request.method == "POST":
-        location_input = request.POST.get("location", False)
-        country_input = request.POST.get("country", False)
-        canada_input = request.POST.get("canada", False)
+        location_input = request.POST.get("location")
+        country_input = request.POST.get("country")
+        canada_input = request.POST.get("canada")
 
         location = UserLocation(
-         US_users =  location_input,
-         EU_users =  country_input,
-         Canada_users =  canada_input
+            US_users =  location_input,
+            EU_users =  country_input,
+            Canada_users =  canada_input
         )
         location.save()
 
@@ -128,48 +110,10 @@ def question6(request):
         users_age.save()
     return render(request, './user-info/question6.html')
 
-<<<<<<< HEAD
-# def question7(request):
-#     objects = PersonalInfoOption.objects.all()
-#     new_list = []
-#     if request.method == "POST":
-#         field_names = [
-#             'Names', 'Phone numbers', 'Email addresses', 'Mailing addresses', 'Job titles',
-#             'Usernames', 'Passwords', 'Contact preferences', 'Contact or authentication data',
-#             'Biling addresses', 'Debit/credit card numbers'
-#         ]
-        
-#         query = Q()  # Create an empty query
-        
-#         for field_name in field_names:
-#             value = request.POST.get(field_name)  # Get the value from the POST data
-#             if value:
-#                 new_list.append(objects.filter(name=field_name))
-#                 # query |= Q(**{field_name: value})  # Add a condition to the query for each field
-            
-#         print(new_list)
-#         selected_items = SelectedInfo.objects.create()
-#         for option in new_list:
-#             print(option.id)
-#             selected_items.selected_options.add(option)
-            
-#         # try:
-#         #     selected_items.save()
-#         # except Exception as e:
-#         #     print(f"This is the error {e}")
-#         # Now, result_objects contains objects that match the specified conditions
-
-#     return render(request, './collect-info/question7.html')
-
-        # Add each selected option separately to the ManyToMany field
-        
-
-=======
 def question7(request):
     # form1 = PersonalInfoOptionForm 
     # form2 = SelectedInfoForm
-    return render(request, './collect-info/question7.html' ,{"form1": form1, "form2": form2} )
->>>>>>> 8594739 (Dynamic Rendering)
+    return render(request, './collect-info/question7.html' ,)
 
 def question8(request):
     if request.method == "POST":
@@ -219,13 +163,6 @@ def question11(request):
         info_app.save()
     return render(request, './collect-info/question11.html')
 
-<<<<<<< HEAD
-def create_personal_info(request):
-    if request.method == "POST":
-        pass
-    return render(request, './collect-info/question7.html')
-=======
-
 def add_data(request):
     if request.method == 'POST':
         data = request.POST.get('data', '')
@@ -236,4 +173,3 @@ def add_data(request):
         return HttpResponse(response_html)
 
     return render(request, 'addform.html')
->>>>>>> 8594739 (Dynamic Rendering)
