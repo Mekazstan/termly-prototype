@@ -1,15 +1,16 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from .models import (
     PrivacyPolicyAnswer, UrlAnswer, EnglishSpellingOption, UserLocation, RegistrationOption,
     UserAge, PersonalInfoOption, SelectedInfo, SensitiveInfo, SocialReg, DerivData,
     InfoApp
 )
 
-from .forms import (
-    PrivacyPolicyAnswerForm, UrlAnswerForm, EnglishSpellingOptionForm, UserLocationForm, 
-    RegistrationOptionForm, UserAgeForm, PersonalInfoOptionForm, SelectedInfoForm, SensitiveInfoForm, 
-    SocialRegForm, DerivDataForm, InfoAppForm
-)
+# from .forms import (
+#     PrivacyPolicyAnswerForm, UrlAnswerForm, EnglishSpellingOptionForm, UserLocationForm, 
+#     RegistrationOptionForm, UserAgeForm, PersonalInfoOptionForm, SelectedInfoForm, SensitiveInfoForm, 
+#     SocialRegForm, DerivDataForm, InfoAppForm
+# )
 
 def homeview(request):
     
@@ -19,38 +20,71 @@ def createview(request):
     
     return render(request, 'popup.html' )
 
-def dataview(request):
-    if request.method == "POST":
-        form1 = PrivacyPolicyAnswerForm(request.POST)
-        if form1.is_valid:
-            form1.save()
-        print(request.POST)
-    return render(request, 'base.html' )
 
+def dataview(request):
+    page_mapping = {
+    'question1': './policy-uses/question1.html',
+    'question2': './policy-uses/question2.html',
+    'question3': './policy-uses/question3.html',
+    'question4': './user-info/question4.html',
+    'question5': './user-info/question5.html',
+    'question6': './user-info/question6.html',
+    'question7': './collect-info/question7.html',
+    'question8': './collect-info/question8.html',
+    'question9': './collect-info/question9.html',
+    'question10': './collect-info/question10.html',
+    'question11': './collect-info/question11.html',
+}
+    # current_question = "question1"
+   
+    return render(request, 'base.html')
+   
 def privacypolicy(request):
 
     return render(request, "preview.html")
 
 def question1(request):
+    #  current_question = request.path
     if request.method == "POST":
-        form1 = PrivacyPolicyAnswerForm(request.POST)
-        if form1.is_valid:
-            form1.save()
-        print(request.POST)
-    return render(request, './policy-uses/question1.html' ,{"form1": form1} )
+        website = request.POST.get('website')
+        mobile_application = request.POST.get('mobile_application')
+        facebook_application = request.POST.get('facebook_application')
+
+        privacy_answer = PrivacyPolicyAnswer(
+            website=website,
+            mobile_application=mobile_application,
+            facebook_application=facebook_application
+        )
+        privacy_answer.save()
+           
+      
+    return render(request, './policy-uses/question1.html' )
 
 def question2(request):
-    if request.method == "POST":
-        form2 = UrlAnswerForm(request.POST)
-        if form1.is_valid:
-            form1.save()
-        print(request.POST)
-    
-    return render(request, './policy-uses/question2.html' ,{"form2": form2} )
+    if request.method =="POST":
+        website_url = request.POST.get('website_url')
+        mobile_app_name = request.POST.get(' mobile_app_name')
+        fb_app_name = request.POST.get('fb_app_name')
+
+        privacy_url = UrlAnswer(
+            website = website_url,
+            mobile_application =  mobile_app_name,
+            facebook_application = fb_app_name
+        )
+        privacy_url.save()
+
+    return render(request, './policy-uses/question2.html' )
 
 def question3(request):
-    form = EnglishSpellingOptionForm
-    return render(request, './policy-uses/question3.html' ,{"form": form} )
+    
+    if request.method == "POST":
+        lang_name = request.POST.get("english_spelling")
+
+        language = EnglishSpellingOption(
+            name = lang_name
+        )
+        language.save()
+    return render(request, './policy-uses/question3.html')
 
 def question4(request):
     form = UserLocationForm

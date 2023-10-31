@@ -1,36 +1,43 @@
 <article>
     <!-- Questions -->
     <h2><strong>Website</strong></h2>
+    
     <div class="question-section">
-        <section class="main-sec">
-            <h3><strong>What is the URL address of your website?</strong></h3>
-            <p style="color: #6c7794;margin: 0.3125rem 0;font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">Enter the URL of the website for which you are making this Privacy Policy.</p>
-            <div style="margin: 0.625rem 0 1.125rem;">
-                <input type="text" name="website_url" placeholder="www.example.com" class="url-input">
-            </div>
-        </section>
-        <section class="main-sec">
-            <h3><strong>What is the name of your mobile application?</strong></h3>
-            <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">Enter the full name of your mobile app.</p>
-            <div style="margin: 0.625rem 0 1.125rem;">
-                <input type="text" name="mobile_app_name" placeholder="e.g., Apple Music" class="url-input">
-            </div>
-        </section>
-        <section class="main-sec">
-            <h3><strong>What is the name of your Facebook application?</strong></h3>
-            <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">Enter the full name of your Facebook app.</p>
-            <div style="margin: 0.625rem 0 1.125rem;">
-                <input type="text" name="fb_app_name" placeholder="e.g., Farmville" class="url-input">
-            </div>
-        </section>
-        <footer>
-            <div>
-                <button hx-get="question1" hx-target="article" class="back-btn"><strong>Back</strong></button>
-            </div>
-            <div class="save-btn-div">
-                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
-            </div>
-        </footer>
+        <form action="{% url 'question2' %}" method="post">
+            {% csrf_token %}
+            
+            <section class="main-sec">
+                <h3><strong>What is the URL address of your website?</strong></h3>
+                <p style="color: #6c7794;margin: 0.3125rem 0;font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">Enter the URL of the website for which you are making this Privacy Policy.</p>
+                <div style="margin: 0.625rem 0 1.125rem;">
+                    <input type="text" name="website_url" placeholder="www.example.com" class="url-input">
+                </div>
+            </section>
+            <section class="main-sec">
+                <h3><strong>What is the name of your mobile application?</strong></h3>
+                <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">Enter the full name of your mobile app.</p>
+                <div style="margin: 0.625rem 0 1.125rem;">
+                    <input type="text" name="mobile_app_name" placeholder="e.g., Apple Music" class="url-input">
+                </div>
+            </section>
+            <section class="main-sec">
+                <h3><strong>What is the name of your Facebook application?</strong></h3>
+                <p style="color: #6c7794;margin: 0.3125rem 0;    font-size: .875rem;font-style: italic;font-weight: 400;line-height: 1.25;">Enter the full name of your Facebook app.</p>
+                <div style="margin: 0.625rem 0 1.125rem;">
+                    <input type="text" name="fb_app_name" placeholder="e.g., Farmville" class="url-input">
+                </div>
+            </section>
+            <footer>
+                <div>
+                    <button hx-get="question1" hx-target="article" class="back-btn"><strong>Back</strong></button>
+                </div>
+                <div class="save-btn-div">
+                    <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+                </div>
+            </footer>
+    
+        </form>
+        
     </div> 
 </article>
 

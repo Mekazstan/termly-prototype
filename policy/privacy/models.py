@@ -1,9 +1,10 @@
+from operator import truediv
 from django.db import models
 
 class PrivacyPolicyAnswer(models.Model):
-    website = models.BooleanField(blank=True, verbose_name="Website")
-    mobile_application = models.BooleanField(blank=True, verbose_name="Mobile application")
-    facebook_application = models.BooleanField(blank=True, verbose_name="Facebook application")
+    website = models.BooleanField(default=False,null=True, verbose_name="Website")
+    mobile_application = models.BooleanField(default=False,null=True, verbose_name="Mobile application")
+    facebook_application = models.BooleanField(default=False,null=True, verbose_name="Facebook application")
 
     def __str__(self):
         return "Privacy Policy Answers"
@@ -12,9 +13,9 @@ class PrivacyPolicyAnswer(models.Model):
         app_label = 'privacy'
 
 class UrlAnswer(models.Model):
-    website = models.URLField(blank=True, verbose_name="Website URL")
-    mobile_application = models.URLField(blank=True, verbose_name="Mobile Application URL")
-    facebook_application = models.URLField(blank=True, verbose_name="Facebook Application URL")
+    website = models.URLField(blank=True, null=True, verbose_name="Website URL")
+    mobile_application = models.URLField(blank=True, null=True, verbose_name="Mobile Application URL")
+    facebook_application = models.URLField(blank=True, null=True, verbose_name="Facebook Application URL")
 
     def __str__(self):
         return "Privacy Policy URL"
@@ -23,7 +24,7 @@ class UrlAnswer(models.Model):
         app_label = 'privacy'
 
 class EnglishSpellingOption(models.Model):
-    name = models.CharField(blank=True, max_length=50)
+    name = models.CharField(blank=True,null=True, max_length=50)
 
     def __str__(self):
         return self.name
@@ -32,9 +33,9 @@ class EnglishSpellingOption(models.Model):
         app_label = 'privacy'
 
 class UserLocation(models.Model):
-    US_users = models.BooleanField(blank=True, verbose_name="Do you have users in the United States?")
-    EU_users = models.BooleanField(blank=True, verbose_name="Do you have users in the EU, UK, Switzerland, Iceland, Liechtenstein, or Norway?")
-    Canada_users = models.BooleanField(blank=True, verbose_name="Do you have users in Canada?")
+    US_users = models.BooleanField(blank=True,null=True, verbose_name="Do you have users in the United States?")
+    EU_users = models.BooleanField(blank=True,null=True, verbose_name="Do you have users in the EU, UK, Switzerland, Iceland, Liechtenstein, or Norway?")
+    Canada_users = models.BooleanField(blank=True,null=True, verbose_name="Do you have users in Canada?")
     
     def __str__(self):
         return "User Location Answers"
@@ -70,7 +71,7 @@ class UserAge(models.Model):
         app_label = 'privacy'
 
 class PersonalInfoOption(models.Model):
-    name = models.CharField(blank=True, max_length=255)
+    name = models.CharField(null=True,blank=True, max_length=255)
 
     def __str__(self):
         return self.name
@@ -112,23 +113,23 @@ class DerivData(models.Model):
         app_label = 'privacy'
 
 class InfoApp(models.Model):
-    user_will_request_geolocation = models.BooleanField(
+    user_will_request_geolocation = models.BooleanField(null=True,
         blank=True,
         verbose_name="Will you be requesting access to your users' geolocations?"
     )
-    user_will_request_features = models.BooleanField(
+    user_will_request_features = models.BooleanField(null=True,
         blank=True,
         verbose_name="Will you be requesting access to features on your users' mobile devices?"
     )
-    user_will_collect_device_info = models.BooleanField(
+    user_will_collect_device_info = models.BooleanField(null=True,
         blank=True,
         verbose_name="Will you be collecting any information regarding your users' mobile devices?"
     )
-    user_will_send_push_notifications = models.BooleanField(
+    user_will_send_push_notifications = models.BooleanField(null=True,
         blank=True,
         verbose_name="Will you be sending push notifications to your users?"
     )
-    has_offer_wall = models.BooleanField(
+    has_offer_wall = models.BooleanField(null=True,
         blank=True,
         verbose_name="Does your mobile app have an 'offer wall'?"
     )

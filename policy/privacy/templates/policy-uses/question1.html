@@ -2,7 +2,7 @@
     <!-- Questions -->
     <h2><strong>Privacy Policy Uses</strong></h2>
     <div class="question-section">
-        <form method="post" action="{% url 'data-input' %}">
+        <form method="post" action="{% url 'question1' %}">
             {% csrf_token %}
             <section class="main-sec">
                 <h3><strong>What will this Privacy Policy be used for?</strong></h3>
@@ -22,7 +22,7 @@
             </section>
             <footer>
                 <div></div>
-                <div class="save-btn-div">
+                <div class="save-btn-div" >
                     <button id='save-button' class="save-btn" type="submit">Save & Next</button>
                 </div>
             </footer>

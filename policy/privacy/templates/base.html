@@ -363,7 +363,7 @@
             margin-bottom: 10px;
             font-size: .875rem;
             font-weight: 400;
-            color: #545454;"
+            color: #545454;
         }
 
         .checkbox-option {
@@ -514,6 +514,17 @@
             display: list-item;
             text-align: -webkit-match-parent;
         }
+.side-link {
+    background-color: #000; /* Background color when active */
+    color: #fff;
+    /* Your default styles for side links here */
+}
+
+.side-link.active {
+    background-color: #4CAF50; /* Background color when active */
+    color: #fff; /* Text color when active */
+    /* Additional styles for active links */
+}
     </style>
 </head>
 <body>
@@ -546,18 +557,63 @@
             <!-- Ordered List -->
             <nav class="ol-nav">
                 <ol>
-                    <li class="first-li">
+                    
+                    {% with page_mapping as valid_pages %}
+                        <li class="side-link
+                            {% if current_question == valid_pages.question1 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question2 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question3 %}
+                                active
+                            {% endif %}">
+                        </li>
+                    {% endwith %}
                         <span class="span-no">1.</span>
                         <span class=".span-text">Privacy Policy Uses</span>
                     </li>
-                    <li class="first-li">
+                    {% with page_mapping as valid_pages %}
+                        <li class="side-link
+                            {% if current_question == valid_pages.question4 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question5 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question6 %}
+                                active
+                            {% endif %}">
+                        </li>
+                    {% endwith %}
                         <span class="span-no">2.</span>
                         <span class=".span-text">User Information</span>
                     </li>
-                    <li class="first-li">
+                    {% with page_mapping as valid_pages %}
+                        <li class="side-link
+                            {% if current_question == valid_pages.question7 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question8 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question9 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question10 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question11 %}
+                                active
+                            {% endif %}">
+                        </li>
+                    {% endwith %}
                         <span class="span-no">3.</span>
                         <span class=".span-text">Collection of Information</span>
                     </li>
+                    
+
                     <!-- <li class="first-li">
                         <span class="span-no">4.</span>
                         <span class=".span-text">Use of Information</span>
@@ -597,7 +653,7 @@
             <!-- Side by Side Divs -->
             <div class="side-by-side">
                 <!-- Include the dynamic content from the "article.html" template -->
-                {% include './policy-uses/question1.html' %}
+                {% include './policy-uses/question3.html' %}
                 <div class="side-right">
                     <div class="main-img">
                         <div class="main-img-div">
