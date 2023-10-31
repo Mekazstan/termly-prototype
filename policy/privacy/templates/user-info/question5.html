@@ -2,26 +2,29 @@
     <!-- Questions -->
     <h2><strong>User Accounts</strong></h2>
     <div class="question-section">
-        <section class="main-sec">
-            <h3><strong>Can users create an account or register with your website or app?</strong></h3>
-            <div class="checkbox-group">
-                <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="Yes" name="create_register"> Yes
-                </label>
+        <form method="post" action="{% url 'question5' %}">
+            {% csrf_token %}
+            <section class="main-sec">
+                <h3><strong>Can users create an account or register with your website or app?</strong></h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="Yes" name="create_register"> Yes
+                    </label>
 
-                <label class="checkbox-label">
-                    <input type="radio" class="checkbox-option" value="No" name="create_register"> No
-                </label>
-            </div>
-        </section>
-        <footer>
-            <div>
-                <button hx-get="question4" hx-target="article" class="back-btn"><strong>Back</strong></button>
-            </div>
-            <div class="save-btn-div">
-                <button id='save-button' class="save-btn" type="submit">Save & Next</button>
-               <!--  <button hx-get="question6" hx-target="article" class="save-btn">Save & Next</button> -->
-            </div>
-        </footer>
+                    <label class="checkbox-label">
+                        <input type="radio" class="checkbox-option" value="No" name="create_register"> No
+                    </label>
+                </div>
+            </section>
+            <footer>
+                <div>
+                    <button hx-get="question4" hx-target="article" class="back-btn"><strong>Back</strong></button>
+                </div>
+                <div class="save-btn-div">
+                    <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+                   <!--  <button hx-get="question6" hx-target="article" class="save-btn">Save & Next</button> -->
+                </div>
+            </footer>
+        </form>
     </div>
 </article>

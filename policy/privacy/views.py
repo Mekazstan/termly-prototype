@@ -58,7 +58,7 @@ def question1(request):
         privacy_answer.save()
            
       
-    return render(request, './policy-uses/question1.html' )
+    return render(request, './policy-uses/question1.html')
 
 def question2(request):
     if request.method =="POST":
@@ -73,7 +73,7 @@ def question2(request):
         )
         privacy_url.save()
 
-    return render(request, './policy-uses/question2.html' )
+    return render(request, './policy-uses/question2.html')
 
 def question3(request):
     
@@ -91,8 +91,14 @@ def question4(request):
     return render(request, './user-info/question4.html' ,{"form": form} )
 
 def question5(request):
-    form = RegistrationOptionForm
-    return render(request, './user-info/question5.html' ,{"form": form} )
+    if request.method =="POST":
+        option = request.POST.get('create_register')
+
+        option_url = RegistrationOption(
+            option = option,
+        )
+        option_url.save()
+    return render(request, './user-info/question5.html')
 
 def question6(request):
     form = UserAgeForm
