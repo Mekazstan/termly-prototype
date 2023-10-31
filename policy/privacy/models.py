@@ -1,4 +1,4 @@
-from operator import truediv
+
 from django.db import models
 
 class PrivacyPolicyAnswer(models.Model):
@@ -33,9 +33,9 @@ class EnglishSpellingOption(models.Model):
         app_label = 'privacy'
 
 class UserLocation(models.Model):
-    US_users = models.BooleanField(blank=True,null=True, verbose_name="Do you have users in the United States?")
-    EU_users = models.BooleanField(blank=True,null=True, verbose_name="Do you have users in the EU, UK, Switzerland, Iceland, Liechtenstein, or Norway?")
-    Canada_users = models.BooleanField(blank=True,null=True, verbose_name="Do you have users in Canada?")
+    US_users = models.CharField(blank=True, null=True,choices=[("Yes", "Yes"), ("No", "No")], verbose_name="Do you have users in the United States?", max_length=50)
+    EU_users = models.CharField(blank=True, null=True,choices=[("Yes", "Yes"), ("No", "No")], verbose_name="Do you have users in the EU, UK, Switzerland, Iceland, Liechtenstein, or Norway?", max_length=50)
+    Canada_users = models.CharField(blank=True, null=True, choices=[("Yes", "Yes"), ("No", "No")], verbose_name="Do you have users in Canada?", max_length=50)
     
     def __str__(self):
         return "User Location Answers"

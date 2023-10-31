@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.db.models import Q
 from .models import (
     PrivacyPolicyAnswer, UrlAnswer, EnglishSpellingOption, UserLocation, RegistrationOption,
     UserAge, PersonalInfoOption, SelectedInfo, SensitiveInfo, SocialReg, DerivData,
@@ -87,8 +88,19 @@ def question3(request):
     return render(request, './policy-uses/question3.html')
 
 def question4(request):
-    form = UserLocationForm
-    return render(request, './user-info/question4.html' ,{"form": form} )
+    if request.method == "POST":
+        location_input = request.POST.get("location", False)
+        country_input = request.POST.get("country", False)
+        canada_input = request.POST.get("canada", False)
+
+        location = UserLocation(
+         US_users =  location_input,
+         EU_users =  country_input,
+         Canada_users =  canada_input
+        )
+        location.save()
+
+    return render(request, './user-info/question4.html')
 
 def question5(request):
     if request.method == "POST":
@@ -110,10 +122,41 @@ def question6(request):
         users_age.save()
     return render(request, './user-info/question6.html')
 
-def question7(request):
-    form1 = PersonalInfoOptionForm 
-    form2 = SelectedInfoForm
-    return render(request, './collect-info/question7.html' ,{"form1": form1, "form2": form2} )
+# def question7(request):
+#     objects = PersonalInfoOption.objects.all()
+#     new_list = []
+#     if request.method == "POST":
+#         field_names = [
+#             'Names', 'Phone numbers', 'Email addresses', 'Mailing addresses', 'Job titles',
+#             'Usernames', 'Passwords', 'Contact preferences', 'Contact or authentication data',
+#             'Biling addresses', 'Debit/credit card numbers'
+#         ]
+        
+#         query = Q()  # Create an empty query
+        
+#         for field_name in field_names:
+#             value = request.POST.get(field_name)  # Get the value from the POST data
+#             if value:
+#                 new_list.append(objects.filter(name=field_name))
+#                 # query |= Q(**{field_name: value})  # Add a condition to the query for each field
+            
+#         print(new_list)
+#         selected_items = SelectedInfo.objects.create()
+#         for option in new_list:
+#             print(option.id)
+#             selected_items.selected_options.add(option)
+            
+#         # try:
+#         #     selected_items.save()
+#         # except Exception as e:
+#         #     print(f"This is the error {e}")
+#         # Now, result_objects contains objects that match the specified conditions
+
+#     return render(request, './collect-info/question7.html')
+
+        # Add each selected option separately to the ManyToMany field
+        
+
 
 def question8(request):
     if request.method == "POST":
@@ -162,3 +205,8 @@ def question11(request):
         )
         info_app.save()
     return render(request, './collect-info/question11.html')
+
+def create_personal_info(request):
+    if request.method == "POST":
+        pass
+    return render(request, './collect-info/question7.html')
