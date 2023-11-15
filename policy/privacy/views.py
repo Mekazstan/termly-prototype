@@ -133,7 +133,9 @@ def question9(request):
             option = option,
         )
         social_reg.save()
+        
     return render(request, './collect-info/question9.html')
+
 
 def question10(request):
     if request.method == "POST":

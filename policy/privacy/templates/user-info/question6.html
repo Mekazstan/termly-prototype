@@ -1,35 +1,819 @@
-<article>
-    <!-- Questions -->
-    <h2><strong>User Age</strong></h2>
-    <div class="question-section">
-        <form method="post" action="{% url 'question6' %}">
-            {% csrf_token %}
-            <section class="main-sec">
-                <h3><strong>Do you target users under the age of 18?</strong></h3>
-                <div class="checkbox-group">
-                    <label class="checkbox-label">
-                        <input type="radio" class="checkbox-option" value="Yes" name="age"> Yes
-                    </label>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Privacy Policy</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
 
-                    <label class="checkbox-label">
-                        <input type="radio" class="checkbox-option" value="No" name="age"> No
-                    </label>
-                </div>
-            </section>
-            <footer>
-                <div>
-                    <button class="back-btn"><strong>Back</strong></button>
-                </div>
-                <div class="save-btn-div">
-                    <button id='save-button' class="save-btn" type="submit">Save & Next</button>
-                    <!-- <button hx-get="question7" hx-target="article" class="save-btn">Save & Next</button> -->
-                </div>
-            </footer>
-        </form>
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        :root {
+            --content-max-width: 120rem;
+            --content-min-width: 23.4375rem;
+            --content-hpad: 1.5625rem;
+        }
+
+        *  {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            background-color: transparent;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            margin-left: 20px;
+        }
+
+        .main-div {
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            min-height: calc(100vh - var(--header-height));
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            filter: drop-shadow(0rem 0.25rem 0.625rem rgba(0,50,123,.1));
+            border-left: 0.0625rem solid #ebedf4;
+            border-right: 0.0625rem solid #ebedf4;
+            background-color: #fff;
+            max-width: var(--content-max-width);
+            min-width: var(--content-min-width);
+            width: 100%;
+            height: 100%;
+        }
+
+        /* First 20% Div */
+        .left-div {
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            height: auto;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 290px;
+            -ms-flex: 0 0 18.125rem;
+            flex: 0 0 18.125rem;
+            background-color: #f5f6fa;
+        }
+
+        /* Header Section */
+        .header-section {
+            padding: 20px;
+            padding-top: 1.625rem;
+            border-bottom: 1px solid #ebedf4;
+            padding-bottom: 1rem;
+            display:block;
+        }
+
+        .b2db {
+            margin: 0.8125rem 0;
+            margin-bottom: 1.375rem;
+        }
+
+        .back-to-dashboard {
+            color: #6c7794;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .progress {
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .progress-bar-sec {
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-flex: 1;
+            -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
+            font-size: .75rem;
+            height: 1rem;
+            min-width: 100%;
+        }
+
+        .progress-text {
+            display: flex;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: #363840;
+            font-size: .75rem;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .progress-bar {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: middle;
+            margin: auto;
+            width: 100%;
+            height: 0.4375rem;
+            border-radius: 0.1875rem;
+            border: 1px solid #ced4da;
+        }
+
+        .ol-nav {
+            padding: 0;
+            margin-top: 1.3125rem;
+        }
+        /* Ordered List */
+        ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .first-li {
+            width: 100%;
+            cursor: pointer;
+            height: 2.75rem;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-left: var(--content-hpad);
+            padding-right: var(--content-hpad);
+            color: #363840;
+            font-size: .875rem;
+            font-weight: 400;
+            word-break: break-all;
+        }
+        .span-no {
+            width: 1.25rem; 
+        }
+        .span-text {
+            width: 11.375rem;
+            word-break: break-word;
+        }
+
+        /* Second 80% Div */
+        .right-div {
+            padding: 2.625rem;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+
+        /* Top Div */
+        .top-div {
+            width: 100%;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.333;
+            margin: 0 0 1rem;
+            color: #000;
+        }
+
+        .publish-button-div {
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin: 0 0 1rem;
+        }
+
+        .publish-button {
+            border-color: #4672ff;
+            background: #4672ff;
+            border-width: 1px;
+            border-radius: 3px;
+            border-style: solid;
+            color: #fff;
+            padding: 0.625em 2em;
+        }
+
+        /* Horizontal Line */
+        hr {
+            border: none;
+            height: 0.0625rem;
+            background: #ced4da;
+            opacity: .9;
+            margin: 0 0 1.5rem;
+            padding: 0;
+        }
+
+        .side-by-side {
+            display: flex;
+        }
+
+        article {
+            display: block;
+            width: 80%;
+            padding: 2px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #363840;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            padding-bottom: 1.6875rem;
+        }
+
+        .question-section {
+            max-width: 50rem;
+        }
+
+        .side-right {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 1 320px;
+            -ms-flex: 0 1 20rem;
+            flex: 0 1 20rem;
+            background: #fff;
+            min-width: 14rem;
+            margin-left: 2.625rem;
+        }
+
+        /* Questions */
+        .questions {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        footer {
+            position: relative;
+            padding-top: 1.875rem;
+            padding-bottom: 3.125rem;
+            border-top: dashed 0.0625rem #e2e2e2;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+        .save-btn-div {
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        .save-btn {
+            border-color: #4672ff;
+            background: #4672ff;
+            cursor: pointer;
+            border-width: 1px;
+            border-radius: 3px;
+            border-style: solid;
+            color: #fff;
+            padding: 0.625em 2em;
+            font-size: .875em;
+            font-family: Roboto,"Open Sans",Helvetica,Arial;
+            line-height: 1.15;
+            margin: 0;
+            overflow: visible;
+            -webkit-appearance: button;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .back-btn {
+            cursor: pointer;
+            border: none;
+            background: rgba(0,0,0,0);
+            padding: 0;
+            font-size: .875em;
+            font-family: Roboto,"Open Sans",Helvetica,Arial;
+            color: #4672ff;
+            font-weight: 500;
+            text-transform: uppercase;
+            -webkit-appearance: button;
+            overflow: visible;
+            line-height: 1.15;
+            margin: 0;
+        }
+        .main-sec {
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .checkbox-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: .875rem;
+            font-weight: 400;
+            color: #545454;
+        }
+
+        .checkbox-option {
+            margin-right: 5px; /* Add spacing between the checkbox and label */
+        }
+        .url-input {
+           width: 100%;
+            border-radius: 3px;
+            border: 1px solid #ced4da;
+            outline: 0;
+            font-family: inherit;
+            font-size: .875rem;
+            font-weight: 400;
+            color: #212529;
+            line-height: 1.25rem;
+            padding-top: 0.6875rem;
+            padding-left: 0.9375rem;
+            padding-right: 2rem;
+            padding-bottom: 0.625rem; 
+            overflow: visible;
+            margin: 0;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            display: -ms-flexbox;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 1;
+            flex: 0 1;
+            background: #fff;
+            font-size: .875rem;
+        }
+
+        .main-img {
+            margin-bottom: 2rem;
+            background: #f5f6fa;
+            border: 1px solid #e8e8e8;
+            border-radius: 0.25rem;
+            box-shadow: 0 2px 4px rgba(226,226,226,.5);
+        }
+
+        .main-img-div {
+            --background: transparent;
+            --body-color: #595959;
+            --title-color: #000000;
+            background-color: #fff;
+            border: 1px solid #eee;
+            font-size: .375rem;
+            margin: 1rem;
+            max-height: 11.625rem;
+            overflow: hidden;
+            position: relative;
+        }
+        .inner-div-img {
+            padding: 1rem;
+            background: var(--background);
+        }
+
+        .sm-div-one {
+            color: var(--title-color);
+            font-family: var(--title-font-family);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .sm-div-two {
+            margin-top: 1em;
+            font-size: smaller;
+        }
+        .sm-div-three {
+            color: var(--body-color);
+            font-family: var(--body-font-family);
+            margin-top: 3em;
+            line-height: 1.5;
+        }
+
+        .img-div{
+            margin-bottom: 2rem;
+            background: #f5f6fa;
+            border: 1px solid #e8e8e8;
+            border-radius: 0.25rem;
+            box-shadow: 0 2px 4px rgba(226,226,226,.5);
+        }
+
+        /* Image */
+        .image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Preview Button */
+        .preview-button {
+            border-color: #4672ff;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            border-width: 1px;
+            border-radius: 3px;
+            border-style: solid;
+            background: #fff;
+            padding: 0.625em 2em;
+            font-size: .875em;
+            font-family: Roboto,"Open Sans",Helvetica,Arial;
+            text-transform: uppercase;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            line-height: 1.25rem;
+            color: #4672ff;
+        }
+
+        .img-btn {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-right: 0.25rem;
+            border-style: none;
+        }
+        .tips-title {
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            color: #363840;
+            font-weight: 500;
+            margin-bottom: 0.875rem;
+            line-height: 1.43;
+        }
+        .tips-img {
+            height: 1.3125rem;
+            width: 1.1875rem;
+            margin-right: 0.3125rem;
+            border-style: none;
+        }
+        h3 {
+            margin: 0 0 0.3125rem;
+            font-size: .875rem;
+            font-weight: 500;
+            line-height: 1.43;
+            color: #363840;
+            align-items: center;
+        }
+        .new-li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+.side-link {
+    background-color: #000; /* Background color when active */
+    color: #fff;
+    /* Your default styles for side links here */
+}
+
+.side-link.active {
+    background-color: #4CAF50; /* Background color when active */
+    color: #fff; /* Text color when active */
+    /* Additional styles for active links */
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE0IiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMTE0IDMwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTM4IDguODQzOTNWNi43OTYwMkg0Ny45MDEyVjguODQzOTNINDQuMjgxNlYyMC4wMzE2SDQxLjYwMDRWOC44NDM5M0gzOFpNNTQuNDUwOCAyMC4xODM0QzUyLjkwNTkgMjAuMTgzNCA1MS42NDgzIDE5LjY4NzIgNTAuNjc4IDE4LjY5NDhDNDkuNzA3NyAxNy43MDI1IDQ5LjIyMjUgMTYuMzkxIDQ5LjIyMjUgMTQuNzYwMkM0OS4yMjI1IDEzLjEyOTUgNDkuNzEwOSAxMS44MjQzIDUwLjY4NzYgMTAuODQ0NUM1MS42NjQzIDkuODY0ODMgNTIuOTI4MiA5LjM3NDk5IDU0LjQ3OTUgOS4zNzQ5OUM1Ni4wMzA3IDkuMzc0OTkgNTcuMzA0MyA5Ljg1MjE5IDU4LjMwMDIgMTAuODA2NkM1OS4yOTYgMTEuNzYxMSA1OS43OTM5IDEzLjAzNDcgNTkuNzkzOSAxNC42Mjc1QzU5Ljc5MzkgMTQuOTk0MSA1OS43Njg0IDE1LjMzNTQgNTkuNzE3MyAxNS42NTE0SDUxLjk4MDNDNTIuMDQ0MSAxNi4zMzQxIDUyLjI5OTUgMTYuODg0IDUyLjc0NjMgMTcuMzAxMUM1My4xOTMyIDE3LjcxODMgNTMuNzYxMyAxNy45MjY5IDU0LjQ1MDggMTcuOTI2OUM1NS4zODI4IDE3LjkyNjkgNTYuMDcyMiAxNy41NDc2IDU2LjUxOTEgMTYuNzg5Mkg1OS40MzAxQzU5LjEyMzcgMTcuNzg3OCA1OC41MyAxOC42MDMyIDU3LjY0OSAxOS4yMzUzQzU2Ljc2ODEgMTkuODY3MyA1NS43MDIgMjAuMTgzNCA1NC40NTA4IDIwLjE4MzRaTTU2LjIyMjMgMTIuMjU3OUM1NS43NDM1IDExLjg0MDggNTUuMTY1OCAxMS42MzIyIDU0LjQ4OTEgMTEuNjMyMkM1My44MTI0IDExLjYzMjIgNTMuMjQ3NSAxMS44NDA4IDUyLjc5NDIgMTIuMjU3OUM1Mi4zNDEgMTIuNjc1MSA1Mi4wNjk3IDEzLjIzMTMgNTEuOTgwMyAxMy45MjY2SDU2Ljk5NzlDNTYuOTU5NiAxMy4yMzEzIDU2LjcwMTEgMTIuNjc1MSA1Ni4yMjIzIDEyLjI1NzlaTTY0LjYyIDkuNTI2NjhWMTEuMzg1QzY1LjMzNSAxMC4wNDUgNjYuMzY5MiA5LjM3NDk5IDY3LjcyMjUgOS4zNzQ5OVYxMi4xMDU1SDY3LjA1MjJDNjYuMjQ3OSAxMi4xMDU1IDY1LjY0MTQgMTIuMzA0NiA2NS4yMzI5IDEyLjcwMjhDNjQuODI0MyAxMy4xMDEgNjQuNjIgMTMuNzg2OCA2NC42MiAxNC43NjAyVjIwLjAzMTdINjEuOTE5N1Y5LjUyNjY4SDY0LjYyWk03Mi4zMzgxIDkuNTI2NjhWMTEuMTAwNUM3My4wMTQ4IDkuOTUwMTYgNzQuMTEyOCA5LjM3NDk5IDc1LjYzMjEgOS4zNzQ5OUM3Ni40MzY0IDkuMzc0OTkgNzcuMTU0NiA5LjU1ODI4IDc3Ljc4NjYgOS45MjQ4OUM3OC40MTg2IDEwLjI5MTUgNzguOTA2OSAxMC44MTYxIDc5LjI1MTcgMTEuNDk4N0M3OS42MjE5IDEwLjg0MTQgODAuMTI5NCAxMC4zMjMxIDgwLjc3NDIgOS45NDM4NUM4MS40MTg5IDkuNTY0NiA4Mi4xNDM1IDkuMzc0OTkgODIuOTQ3OCA5LjM3NDk5Qzg0LjIxMTggOS4zNzQ5OSA4NS4yMyA5Ljc2Njg2IDg2LjAwMjQgMTAuNTUwNkM4Ni43NzQ5IDExLjMzNDQgODcuMTYxMSAxMi40MzQyIDg3LjE2MTEgMTMuODVWMjAuMDMxN0g4NC40Nzk5VjE0LjIyOTNDODQuNDc5OSAxMy40MDc2IDg0LjI2OTMgMTIuNzc4NyA4My44NDc5IDEyLjM0MjZDODMuNDI2NiAxMS45MDY0IDgyLjg1MjEgMTEuNjg4NCA4Mi4xMjQzIDExLjY4ODRDODEuMzk2NiAxMS42ODg0IDgwLjgxODkgMTEuOTA2NCA4MC4zOTExIDEyLjM0MjZDNzkuOTYzNCAxMi43Nzg3IDc5Ljc0OTYgMTMuNDA3NiA3OS43NDk2IDE0LjIyOTNWMjAuMDMxN0g3Ny4wNjg0VjE0LjIyOTNDNzcuMDY4NCAxMy40MDc2IDc2Ljg1NzggMTIuNzc4NyA3Ni40MzY0IDEyLjM0MjZDNzYuMDE1MSAxMS45MDY0IDc1LjQ0MDYgMTEuNjg4NCA3NC43MTI4IDExLjY4ODRDNzMuOTg1MSAxMS42ODg0IDczLjQwNzQgMTEuOTA2NCA3Mi45Nzk3IDEyLjM0MjZDNzIuNTUxOSAxMi43Nzg3IDcyLjMzODEgMTMuNDA3NiA3Mi4zMzgxIDE0LjIyOTNWMjAuMDMxN0g2OS42Mzc4VjkuNTI2NjhINzIuMzM4MVpNODkuOTM4IDIwLjAzMTlWNkg5Mi42MzgzVjIwLjAzMTlIODkuOTM4Wk05OC4zNjQ0IDE5Ljg0MTlMOTQuMjA4NiA5LjUyNjUySDk3LjIzNDVMOTkuOTM0OCAxNi45OTc2TDEwMi43ODggOS41MjY1MkgxMDUuNjA0TDk4Ljk3NzMgMjQuOTk5Nkg5Ni4xNjJMOTguMzY0NCAxOS44NDE5WiIgZmlsbD0iIzM2Mzg0MCIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE1IDMwQzIzLjI4NDMgMzAgMzAgMjMuMjg0MyAzMCAxNUMzMCA2LjcxNTczIDIzLjI4NDMgMCAxNSAwQzYuNzE1NzMgMCAwIDYuNzE1NzMgMCAxNUMwIDIzLjI4NDMgNi43MTU3MyAzMCAxNSAzMFpNMTIuNjMxNiA4LjEwODRIMjEuNjExOUwxOC43MTcxIDEyLjE2MjRIMjEuMzE1OEwxMi42MzE2IDI0LjMyNDZWMjAuNjg1MlYxMi4xNjI0VjguMTA4NFoiIGZpbGw9IiM0NjcyRkYiLz4KPC9zdmc+Cg==" alt="Logo">
+        </div>
     </div>
-</article>
+
+    <div class="main-div">
+        <!-- First 20% Div -->
+        <div class="left-div">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="b2db">
+                    <a class="back-to-dashboard" href="{% url 'home' %}">&lt; BACK</a>
+                </div>
+                <div class="progress">
+                    <div class="progress-text">
+                        <span>Progress</span>
+                    </div>
+                    <div class="progress-bar-sec">
+                        <div class="progress-bar"></div> 
+                        <div style="width: 2.75rem; text-align: right;font-size: .75rem;font-weight: 500;">0%</div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- Ordered List -->
+            <nav class="ol-nav">
+                <ol>
+                    
+                    {% with page_mapping as valid_pages %}
+                        <li class="side-link
+                            {% if current_question == valid_pages.question1 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question2 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question3 %}
+                                active
+                            {% endif %}">
+                        </li>
+                    {% endwith %}
+                        <span class="span-no">1.</span>
+                        <span class=".span-text">Privacy Policy Uses</span>
+                    </li>
+                    {% with page_mapping as valid_pages %}
+                        <li class="side-link
+                            {% if current_question == valid_pages.question4 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question5 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question6 %}
+                                active
+                            {% endif %}">
+                        </li>
+                    {% endwith %}
+                        <span class="span-no">2.</span>
+                        <span class=".span-text">User Information</span>
+                    </li>
+                    {% with page_mapping as valid_pages %}
+                        <li class="side-link
+                            {% if current_question == valid_pages.question7 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question8 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question9 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question10 %}
+                                active
+                            {% endif %}
+                            {% if current_question == valid_pages.question11 %}
+                                active
+                            {% endif %}">
+                        </li>
+                    {% endwith %}
+                        <span class="span-no">3.</span>
+                        <span class=".span-text">Collection of Information</span>
+                    </li>
+                    
+
+                    <!-- <li class="first-li">
+                        <span class="span-no">4.</span>
+                        <span class=".span-text">Use of Information</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">5.</span>
+                        <span class=".span-text">Disclosure of Information</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">6.</span>
+                        <span class=".span-text">Use of Tracking Technologies</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">7.</span>
+                        <span class=".span-text">User Rights</span>
+                    </li>
+                    <li class="first-li">
+                        <span class="span-no">8.</span>
+                        <span class=".span-text">Final Details</span></a></li> -->
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Second 80% Div -->
+        <div class="right-div">
+            <!-- Top Div -->
+            <div class="top-div">
+                <h1><strong>Privacy Policy</strong></h1>
+                <div class="publish-button-div">
+                    <button class="publish-button">PUBLISH</button>
+                </div>
+            </div>
+
+    <!--         Horizontal Line -->
+            <hr>
+
+            <!-- Side by Side Divs -->
+            <div class="side-by-side">
+                <!-- Include the dynamic content from the "article.html" template -->
+                <article>
+                    <!-- Questions -->
+                    <h2><strong>User Age</strong></h2>
+                    <div class="question-section">
+                        <form method="post" action="{% url 'question6' %}">
+                            {% csrf_token %}
+                            <section class="main-sec">
+                                <h3><strong>Do you target users under the age of 18?</strong></h3>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="radio" class="checkbox-option" value="Yes" name="age"> Yes
+                                    </label>
+                
+                                    <label class="checkbox-label">
+                                        <input type="radio" class="checkbox-option" value="No" name="age"> No
+                                    </label>
+                                </div>
+                            </section>
+                            <footer>
+                                <div>
+                                    <button class="back-btn"><strong>Back</strong></button>
+                                </div>
+                                <div class="save-btn-div">
+                                    <button id='save-button' class="save-btn" type="submit">Save & Next</button>
+                                    <!-- <button hx-get="question7" hx-target="article" class="save-btn">Save & Next</button> -->
+                                </div>
+                            </footer>
+                        </form>
+                    </div>
+                </article>
+                <div class="side-right">
+                    <div class="main-img">
+                        <div class="main-img-div">
+                            <div class="inner-div-img">
+                                <div class="sm-div-one">Privacy Policy</div>
+                                <div class="sm-div-two">
+                                    Last updated October 29, 2023
+                                </div>
+                                <div class="sm-div-three">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum commodo lorem eget tincidunt. Curabitur imperdiet commodo risus sed commodo.</p>
+                                    <p>Nullam auctor pellentesque pretium. Mauris blandit est sit amet odio tempus, sit amet viverra ipsum finibus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec bibendum congue ipsum quis ullamcorper. Ut risus lacus, faucibus sit amet cursus vitae, tristique id sapien.</p>
+                                    <p>Vestibulum leo justo, mollis euismod nunc eget, feugiat vulputate enim.</p>
+                                    <p>Suspendisse consectetur ac odio rhoncus commodo. In hac habitasse platea dictumst. In hac habitasse platea dictumst.</p>
+                                    <p>Curabitur egestas rhoncus ante, a lobortis velit ultrices id. Integer blandit tincidunt luctus. Nam efficitur a sapien et placerat. Ut faucibus quis nulla dignissim mollis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="preview-button">
+                        <img class="img-btn" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMSAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuODQzNDMgMTAuNDM1OUMxLjY5NTk2IDEwLjI3MiAxLjU2ODc5IDEwLjEyNSAxLjQ2MzQgMTBDMS41Njg3OSA5Ljg3NTA0IDEuNjk1OTYgOS43MjgwMyAxLjg0MzQzIDkuNTY0MUMyLjMzMTU4IDkuMDIxNDggMy4wMzc1MiA4LjI5ODU5IDMuOTA3NTYgNy41Nzc0M0M1LjY2ODkgNi4xMTc0NiA3Ljk5OTY4IDQuNzUgMTAuNSA0Ljc1QzEzLjAwMDMgNC43NSAxNS4zMzExIDYuMTE3NDYgMTcuMDkyNCA3LjU3NzQzQzE3Ljk2MjUgOC4yOTg1OSAxOC42Njg0IDkuMDIxNDggMTkuMTU2NiA5LjU2NDFDMTkuMzA0IDkuNzI4MDMgMTkuNDMxMiA5Ljg3NTA0IDE5LjUzNjYgMTBDMTkuNDMxMiAxMC4xMjUgMTkuMzA0IDEwLjI3MiAxOS4xNTY2IDEwLjQzNTlDMTguNjY4NCAxMC45Nzg1IDE3Ljk2MjUgMTEuNzAxNCAxNy4wOTI0IDEyLjQyMjZDMTUuMzMxMSAxMy44ODI1IDEzLjAwMDMgMTUuMjUgMTAuNSAxNS4yNUM3Ljk5OTY4IDE1LjI1IDUuNjY4OSAxMy44ODI1IDMuOTA3NTYgMTIuNDIyNkMzLjAzNzUyIDExLjcwMTQgMi4zMzE1OCAxMC45Nzg1IDEuODQzNDMgMTAuNDM1OVoiIHN0cm9rZT0iIzQ2NzJGRiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPGNpcmNsZSBjeD0iMTAuNSIgY3k9IjEwIiByPSIyLjI1IiBzdHJva2U9IiM0NjcyRkYiIHN0cm9rZS13aWR0aD0iMS41Ii8+Cjwvc3ZnPgo="> Preview</button>
+                    
+                    <!-- Tips Section -->
+                    <section class="tips-section">
+                        <div class="tips-title">
+                            <img class="tips-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAxOSAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjIwMjIgMTQuMzQxTDExLjkyMjggMTQuNTE3NkwxMS45MjI3IDE0Ljg0ODFMMTEuOTIyMyAxNi41MTk5SDcuMzYyMjNMNy4zNjIzNSAxNC44NDg3TDcuMzYyMzggMTQuNTE4TDcuMDgyNzcgMTQuMzQxNEM1LjczNTExIDEzLjQ5MDIgNC44NDIxOSAxMS45ODkxIDQuODQyMTkgMTAuMjc5OUM0Ljg0MjE5IDcuNjI4OTIgNi45OTEyMiA1LjQ3OTg4IDkuNjQyMTkgNS40Nzk4OEMxMi4yOTMyIDUuNDc5ODggMTQuNDQyMiA3LjYyODkyIDE0LjQ0MjIgMTAuMjc5OUMxNC40NDIyIDExLjk4ODggMTMuNTQ5NSAxMy40ODk3IDEyLjIwMjIgMTQuMzQxWiIgc3Ryb2tlPSIjMzYzODQwIiBzdHJva2Utd2lkdGg9IjEuMiIvPgo8cGF0aCBkPSJNMy44ODQxOSA0Ljg3OTk2TDMuNDIxNDcgNC41MzY5NCIgc3Ryb2tlPSIjMzYzODQwIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0xNS4wNjkxIDQuOTA0MTdMMTUuNDgzNSA0LjUwNDA1IiBzdHJva2U9IiMzNjM4NDAiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGNpcmNsZSBjeD0iOS42MDIzNCIgY3k9IjExIiByPSIxLjIiIGZpbGw9IiMzNjM4NDAiLz4KPHBhdGggZD0iTTEyLjAwMzkgMTcuOTk5OVYxOC45OTk5SDcuMDAzOTFWMTcuOTk5OUgxMi4wMDM5WiIgZmlsbD0iIzM2Mzg0MCIvPgo8cGF0aCBkPSJNOS42NDM0NyAyLjU3NlYyIiBzdHJva2U9IiMzNjM4NDAiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTEuNTc5OTEgOS40ODgwMUgxLjAwMzkxIiBzdHJva2U9IiMzNjM4NDAiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTE3LjcwNyA5LjQ4ODAxSDE4LjI4MyIgc3Ryb2tlPSIjMzYzODQwIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik05LjY0NTE2IDExLjM2VjE2LjkyMzQiIHN0cm9rZT0iIzM2Mzg0MCIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KPC9zdmc+Cg=="> Tips:
+                        </div>
+                        <h3>What is a privacy policy?</h3>
+                        <p>
+                            <div>
+                                A privacy policy (also referred to as a privacy notice) is a statement or legal document that describes how a company, website, or app collects, uses, maintains, and shares information collected from or about its users. Most countries require any website that collects personal information from its users to have a written privacy policy posted on the website.
+                            </div>
+                            <div>
+                                <br>
+                            </div>
+                            <div>
+                                <strong>Does Termly's Privacy Policy Generator cover all privacy laws?</strong>
+                            </div>
+                            <div>
+                                <br>
+                            </div>
+                            <div>
+                                Termly’s Privacy Policy Generator is designed to help you comply with the following regions:
+                            </div>
+                            <ul>
+                                <li class="new-li">EU (GDPP)</li>
+                                <li class="new-li">UK (UK GDPR)</li>
+                                <li class="new-li">California (CCPA, CPRA, and CalOPPA)</li>
+                                <li class="new-li">Colorado (CPA)</li>
+                                <li class="new-li">Connecticut (CTDPA)</li>
+                                <li class="new-li">Utah (UCPA)</li>
+                                <li class="new-li">Virginia (VCDPA)</li>
+                                <li class="new-li">Canada (PIPEDA)</li>
+                                <li class="new-li">Quebec (Law 25)</li>
+                                <li class="new-li">Australia (Privacy Act 1988)</li>
+                                <li class="new-li">New Zealand (Privacy Act 2020)</li>
+                                <li class="new-li">South Africa (POPIA)</li>
+                                <li class="new-li">Switzerland (FADP)</li>
+                            </ul>
+                            <div>
+                                In many cases, our Privacy Policy Generator could help you comply with other privacy laws. However, Termly’s products aren’t specifically built to comply with laws outside of the above list. We recommend consulting with a local attorney for any laws not yet specifically included in our offerings. Learn more about which <a href="" target="_blank">privacy laws Termly's Privacy Policy Generator covers</a>
+                            </div>
+                            <div>
+                                <strong>
+                                    <br>
+                                </strong>
+                            </div>
+                            <div>
+                                <strong>How does Termly help you keep your privacy policy up to date?</strong>
+                            </div>
+                            <div>
+                                <br>
+                            </div>
+                            <div>
+                                Termly publishes <a href="" target="_blank">periodic version updates to policies</a>
+                            </div>
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+</body>
+</html>
+
+
 
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const saveButton = document.getElementById("save-button");
+
+        saveButton.addEventListener("click", async function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Serialize the form data
+            const formData = new FormData(document.querySelector("form"));
+
+            // Perform a POST request using fetch
+            try {
+                const postResponse = await fetch("{% url 'question6' %}", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (postResponse.ok) {
+                    // Successfully posted data
+                    // No need to parse JSON; server returns HTML
+                    const getResponse = await fetch("{% url 'question7' %}");
+                    
+                    if (getResponse.ok) {
+                        const data = await getResponse.text();
+
+                        // Update the 'article' section with the new content
+                        document.querySelector("article").innerHTML = data;
+                    } else {
+                        console.log("GET request failed:", getResponse.status);
+                    }
+                } else {
+                    console.log("POST request failed:", postResponse.status);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        });
+    });
+</script>
+
+
+
+<!-- <script>
     $(document).ready(function() {
         $("#save-button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
@@ -57,4 +841,4 @@
             });
         });
     });
-</script>
+</script> -->
